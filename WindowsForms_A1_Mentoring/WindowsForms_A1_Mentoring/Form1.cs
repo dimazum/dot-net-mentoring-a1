@@ -20,7 +20,8 @@ namespace WindowsForms_A1_Mentoring
         private void button1_Click(object sender, EventArgs e)
         {
             var name = this.textBox1.Text;
-            MessageBox.Show($"Hello, {name}");
+            var msg = MyLibrary.Informer.SayHello(name);
+            MessageBox.Show(msg);
         }
     }
 }
