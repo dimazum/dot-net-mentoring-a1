@@ -16,5 +16,11 @@ namespace WindowsForms_A1_Mentoring
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var name = this.textBox1.Text;
+            MessageBox.Show($"Hello, {name}");
+        }
     }
 }
