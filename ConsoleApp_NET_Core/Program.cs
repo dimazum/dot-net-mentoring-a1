@@ -6,7 +6,8 @@ namespace ConsoleApp_NET_Core
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var message = MyLibrary.Informer.SayHello(args[0]);
+            Console.WriteLine(message);
         }
     }
 }

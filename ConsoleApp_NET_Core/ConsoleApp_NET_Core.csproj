@@ -5,4 +5,10 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="MyLibrary">
+      <HintPath>..\MyLibrary\MyLibrary\bin\Debug\netstandard2.0\MyLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
