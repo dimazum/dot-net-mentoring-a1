@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Linq;
+using System.Threading.Channels;
+using TypeConverter;
 
 namespace FirstCharacterViewer
 {
@@ -6,7 +9,13 @@ namespace FirstCharacterViewer
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            FirstCharacterController firstCharacterController = new FirstCharacterController(new FirstCharacter(), new StringConvertor());
+            //firstCharacterController.ConvertStringToInt();
+            firstCharacterController.GetFirstCharacter();
+
+
+            Console.ReadLine();
         }
+ 
     }
 }
