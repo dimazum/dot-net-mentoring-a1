@@ -4,7 +4,7 @@ using TypeConverter.Interfaces;
 
 namespace TypeConverter
 {
-    public class StringConvertor : IStringConverter
+    public class StringConverter : IStringConverter
     {
         public int StrToInt(string str)
         {

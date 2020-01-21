@@ -20,7 +20,7 @@ namespace FirstCharacterViewer
             _stringConverter = stringConverter;
         }
 
-        public string GetLine()
+        private string GetLine()
         {
             Console.WriteLine("введите строку");
             return Console.ReadLine();
