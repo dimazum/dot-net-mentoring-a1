@@ -7,11 +7,17 @@ namespace FirstCharacterViewer
 {
     public class FirstCharacter : IFirstCharacter
     {
-        private Action<string> _sendMessageHandler;
+        private Action<string> _sendMessage;
+        private Action<string> _recoveryStateAfterException;
+        private bool _isException;
 
-        public void RegisterMessageHandler(Action<string> sendMessageHandler)
+        public void RegisterSendMessage(Action<string> sendMessageHandler)
         {
-            _sendMessageHandler = sendMessageHandler;
+            _sendMessage = sendMessageHandler;
+        }
+        public void RegisterRecoveryStateAfterException(Action<string> recoveryStateAfterException)
+        {
+            _recoveryStateAfterException = recoveryStateAfterException;
         }
         public string GetFirstCharacter( string line)
         {
@@ -21,11 +27,20 @@ namespace FirstCharacterViewer
             {
                 str = line.Substring(0, 1);
             }
-            catch (ArgumentOutOfRangeException exception )
+            catch (ArgumentOutOfRangeException exception)
             {
-                _sendMessageHandler?.Invoke($"You entered empty string. {exception}");
+                _sendMessage?.Invoke($"You entered empty string. {exception}");
+                _isException = true;
             }
-
+            finally
+            {
+                if (_isException)
+                {
+                    _isException = false;
+                    _recoveryStateAfterException?.Invoke("Do you want to try again? Y - yes, N - no");
+                }
+            }
+            
             return str;
         }
     }

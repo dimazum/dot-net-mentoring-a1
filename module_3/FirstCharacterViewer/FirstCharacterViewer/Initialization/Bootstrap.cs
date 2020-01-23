@@ -17,7 +17,7 @@ namespace FirstCharacterViewer.Initialization
             container = new Container();
             container.Register<IFirstCharacterController, FirstCharacterController>();
             container.Register<IFirstCharacter, FirstCharacter>();
-            container.Register<IStringConverter, StringConverter>(Lifestyle.Singleton);
+            container.Register<IStringConverter, StringConverter>();
             
             container.Verify();
         }

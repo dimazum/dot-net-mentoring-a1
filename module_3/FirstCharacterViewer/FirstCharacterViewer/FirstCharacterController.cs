@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Channels;
 using FirstCharacterViewer.Interfaces;
@@ -8,9 +9,8 @@ using TypeConverter.Interfaces;
 
 namespace FirstCharacterViewer
 {
-    class FirstCharacterController :IFirstCharacterController
+    class FirstCharacterController : IFirstCharacterController
     {
-
         private readonly IFirstCharacter _firstCharacter;
         private readonly IStringConverter _stringConverter;
 
@@ -22,52 +22,73 @@ namespace FirstCharacterViewer
 
         private string GetLine()
         {
-            Console.WriteLine("введите строку");
+            Console.WriteLine("Enter string");
             return Console.ReadLine();
         }
 
         public void GetFirstCharacter()
         {
-            while (true)
-            {
-                _firstCharacter.RegisterMessageHandler(x=>Console.WriteLine(x));
-                var str = _firstCharacter.GetFirstCharacter(GetLine());
+            _firstCharacter.RegisterRecoveryStateAfterException(RecoveryStateAfterExceptionHandler);
+            _firstCharacter.RegisterSendMessage(x => Console.WriteLine(x));
+            var str = _firstCharacter.GetFirstCharacter(GetLine());
 
-                if (str == "0")
-                {
-                    Console.WriteLine("Exit");
-                    break;
-                }
-                Console.WriteLine(str);
+            if (!string.IsNullOrEmpty(str))
+            {
+                Console.WriteLine($"First character is {str}");
             }
         }
 
         public void ConvertStringToInt()
         {
-            while (true)
+            var isException = false;
+            int? number = null;
+
+            try
             {
-                int? number = null;
-                var str = GetLine();
-                try
-                {
-                    number = _stringConverter.StrToInt(str);
-                }
-                catch (ArgumentNullException e)
-                {
-                    Console.WriteLine($"An exception occured: {e}");
-                }
+                number = _stringConverter.StrToInt(GetLine());
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine($"An exception occured: {e}");
+                isException = true;
+            }
 
-                catch (ArgumentException e)
-                {
-                    Console.WriteLine($"An exception occured: {e}");
-                }
+            catch (ArgumentException e)
+            {
+                isException = true;
+                Console.WriteLine($"An exception occured: {e}");
+            }
 
-                if (str == "e")
+            finally
+            {
+                if (isException)
                 {
-                    Console.WriteLine("Exit");
-                    break;
+                    RecoveryStateAfterException("Do you want to try again? Y - yes, N - no");
                 }
+            }
+
+            if (!isException)
+            {
                 Console.WriteLine($"Number is {number}");
+            }
+        }
+
+        private void RecoveryStateAfterExceptionHandler(string str)
+        {
+            Console.WriteLine(str);
+            var line = Console.ReadLine()?.ToLower();
+            if (line == "y")
+            {
+                GetFirstCharacter();
+            }
+        }
+        private void RecoveryStateAfterException(string str)
+        {
+            Console.WriteLine(str);
+            var line = Console.ReadLine()?.ToLower();
+            if (line == "y")
+            {
+                ConvertStringToInt();
             }
         }
     }
