@@ -14,11 +14,8 @@ namespace FirstCharacterViewer
             Bootstrap.Start();
 
             var firstCharacterController = Bootstrap.container.GetInstance<IFirstCharacterController>();
-
-            //FirstCharacterController firstCharacterController = new FirstCharacterController(new FirstCharacter(), new StringConvertor());
-            firstCharacterController.ConvertStringToInt();
-
-
+            //firstCharacterController.ConvertStringToInt();
+            firstCharacterController.GetFirstCharacter();
 
             Console.ReadLine();
         }
