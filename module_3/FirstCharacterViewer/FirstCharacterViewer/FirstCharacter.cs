@@ -21,7 +21,11 @@ namespace FirstCharacterViewer
         }
         public string GetFirstCharacter( string line)
         {
-  
+            if (line == null)
+            {
+                return string.Empty;
+            }
+
             string str = string.Empty;
             try
             {
