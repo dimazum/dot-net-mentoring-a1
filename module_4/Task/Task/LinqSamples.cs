@@ -22,7 +22,8 @@ namespace SampleQueries
 	[Title("LINQ Module")]
 	[Prefix("Linq")]
 	public class LinqSamples : SampleHarness
-	{
+    {
+        
 
 		private DataSource dataSource = new DataSource();
 
@@ -156,9 +157,7 @@ namespace SampleQueries
             }
         }
 
-
-
-        [Category("Restriction Operators")]
+        [Category("Projection Operators")]
         [Title("Where - Task 004")]
         [Description("This sample return return all presented in market products")]
 
@@ -177,7 +176,7 @@ namespace SampleQueries
         }
 
 
-        [Category("Restriction Operators")]
+        [Category("Projection and sorting Operators")]
         [Title("Where - Task 005")]
         [Description("This sample return return all presented in market products")]
 
@@ -201,7 +200,7 @@ namespace SampleQueries
             }
         }
 
-        [Category("Restriction Operators")]
+        [Category("Filtering Operators")]
         [Title("Where - Task 006")]
         [Description("This sample return return all presented in market products")]
 
@@ -217,21 +216,23 @@ namespace SampleQueries
             }
         }
 
-        [Category("Restriction Operators")]
+        [Category("Grouping Operators")]
         [Title("Where - Task 007")]
         [Description("This sample return return all presented in market products")]
 
         public void Linq007()
         {
+            int counter = 0;
             var customers = dataSource.Products.GroupBy(x => x.Category)
                 .Select((x) => new
                 {
                     categoryName = x.Key,
-                    products = x.GroupBy(y => y.UnitsInStock != 0)
+                    products = x.GroupBy(y => y.UnitsInStock != 0 ? "YES" :"NO")
                         .Select(z => new
                         {
+                            groupNumber = counter++,
                             InTheStock = z.Key,
-                            products = z.Key ? z.OrderBy(o => o.UnitPrice) : z.Select(f=>f)
+                            products = z.Key == "YES" ? z.OrderBy(o => o.UnitPrice) : z.Select(f=>f)
                         })
                 });
 
@@ -240,7 +241,7 @@ namespace SampleQueries
                 ObjectDumper.Write($"Category: {p.categoryName}");
                 foreach (var product in p.products)
                 {
-                    ObjectDumper.Write($"In the stock {product.InTheStock}");
+                    ObjectDumper.Write($"In the stock {product.InTheStock}   groupNumber = {product.groupNumber}");
                     foreach (var prod in product.products)
                     {
                         ObjectDumper.Write($"Product :{prod.ProductName}");
@@ -249,7 +250,7 @@ namespace SampleQueries
             }
         }
 
-        [Category("Restriction Operators")]
+        [Category("Grouping Operators")]
         [Title("Where - Task 008")]
         [Description("This sample return return all presented in market products")]
 
@@ -276,7 +277,80 @@ namespace SampleQueries
         }
 
 
+        [Category("Grouping Operators")]
+        [Title("Where - Task 009")]
+        [Description("This sample return return all presented in market products")]
 
+        public void Linq009()
+        {
+            var customers = dataSource.Customers.GroupBy(x => x.City)
+                .Select(x => new
+                {
+                    city = x.Key,
+                    avgOrder = x.SelectMany(c=>c.Orders).Select(v=>v.Total).Average(),
+                    avgOrderNumbers = x.SelectMany(n => n.Orders).Count() / (double)x.Select(v=>v.CustomerID).Distinct().Count(),
+                });
+
+            foreach (var p in customers)
+            {
+                ObjectDumper.Write(p);
+            }
+        }
+
+
+        [Category("Grouping Operators")]
+        [Title("Where - Task 010")]
+        [Description("This sample return return all presented in market products")]
+
+        public void Linq010()
+        {
+            var statisticsByMonth = dataSource.Customers.
+                SelectMany(c => c.Orders).
+                GroupBy(o => o.OrderDate.Month)
+                .Select(x=> new
+                {
+                    x.Key,
+                    countOrders = x.Select(y=>y.OrderID).Count()
+                })
+                .OrderBy(x=>x.Key);
+
+            var statisticsByYear = dataSource.Customers.
+                SelectMany(c => c.Orders).
+                GroupBy(o => o.OrderDate.Year)
+                .Select(x => new
+                {
+                    x.Key,
+                    countOrders = x.Select(y => y.OrderID).Count()
+                })
+                .OrderBy(x => x.Key);
+
+            var statisticsByYearAndMonth = dataSource.Customers.
+                SelectMany(c => c.Orders).
+                GroupBy(o => new { o.OrderDate.Year, o.OrderDate.Month})
+                .Select(x => new
+                {
+                    x.Key.Year,
+                    x.Key.Month,
+                    countOrders = x.Select(y => y.OrderID).Count()
+                })
+                .OrderBy(x=>x.Year)
+                .ThenBy(y=>y.Month);
+
+            foreach (var p in statisticsByMonth)
+            {
+                ObjectDumper.Write(p);
+            }
+
+            foreach (var p in statisticsByYear)
+            {
+                ObjectDumper.Write(p);
+            }
+
+            foreach (var p in statisticsByYearAndMonth)
+            {
+                ObjectDumper.Write(p);
+            }
+        }
 
         private bool IsMatch(string s, string mask)
         {
