@@ -8,7 +8,7 @@ using ConsoleApp1.Configuration;
 
 namespace ConsoleApp1
 {
-    public class SimpleConfigurationSection : ConfigurationSection
+    public class WatcherConfigurationSection : ConfigurationSection
     {
         [ConfigurationProperty("appName")]
         public string AppName

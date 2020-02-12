@@ -70,6 +70,15 @@ namespace ConsoleApp1.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MM-dd-yyyy.
+        /// </summary>
+        internal static string DatePrefix {
+            get {
+                return ResourceManager.GetString("DatePrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to File Not Moved! Error :{0}.
         /// </summary>
         internal static string ErrorFileNotMoved {

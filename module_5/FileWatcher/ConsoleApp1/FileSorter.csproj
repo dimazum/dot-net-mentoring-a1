@@ -58,7 +58,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Logs.resx</DependentUpon>
     </Compile>
-    <Compile Include="Configuration\SimpleConfigurationSection.cs" />
+    <Compile Include="Configuration\WatcherConfigurationSection.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

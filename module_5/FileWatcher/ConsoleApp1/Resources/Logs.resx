@@ -135,4 +135,7 @@
   <data name="FileMoved" xml:space="preserve">
     <value>File was moved to : {0}</value>
   </data>
+  <data name="DatePrefix" xml:space="preserve">
+    <value>MM-dd-yyyy</value>
+  </data>
 </root>

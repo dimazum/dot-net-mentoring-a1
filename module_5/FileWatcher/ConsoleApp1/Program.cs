@@ -17,13 +17,10 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         { 
- 
             var fileWatcher = new FileWatcher();
             fileWatcher.StartWatching();
 
             Console.ReadLine();
-          
-
         }
    }
 }

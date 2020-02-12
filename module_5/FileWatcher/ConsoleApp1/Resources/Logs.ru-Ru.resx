@@ -120,17 +120,20 @@
   <data name="AppropriateRule" xml:space="preserve">
     <value>Подходящее правило было найдено: {0}</value>
   </data>
+  <data name="DatePrefix" xml:space="preserve">
+    <value>dd-MM-yyyy</value>
+  </data>
   <data name="ErrorFileNotMoved" xml:space="preserve">
     <value>Файл не перемещен ! Ошибка : {0}</value>
   </data>
   <data name="Exit" xml:space="preserve">
     <value>Нажмите Ctrl+C или Ctrl+Break для выхода</value>
   </data>
-  <data name="File moved" xml:space="preserve">
+  <data name="FileMoved" xml:space="preserve">
     <value>Файл был перемещен в: {0}</value>
   </data>
   <data name="NewFile" xml:space="preserve">
-    <value>Новый файл был создан: {0}</value>
+    <value>Новый файл был создан : {0}</value>
   </data>
   <data name="StartWatching" xml:space="preserve">
     <value>Начало обработки папок...</value>

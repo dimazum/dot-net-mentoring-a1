@@ -16,13 +16,17 @@ namespace ConsoleApp1
     public class FileWatcher
     {
         private int _count;
+        private readonly WatcherConfigurationSection _config;
+
+        public FileWatcher()
+        {
+            _config = (WatcherConfigurationSection)ConfigurationManager.GetSection("watcherSection");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(_config.CultureInfo.Culture);
+        }
 
         public void StartWatching()
         {
-            var config = (SimpleConfigurationSection) ConfigurationManager.GetSection("simpleSection");
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(config.CultureInfo.Culture);
-
-            var fileSystemWatcherList = FileSystemWatcherInit(config.Folders);
+            var fileSystemWatcherList = FileSystemWatcherInit(_config.Folders);
 
             var isMoved = false;
 
@@ -34,13 +38,14 @@ namespace ConsoleApp1
                 fileSystemWatcher.EnableRaisingEvents = true;
                 fileSystemWatcher.Created += (sender, e) =>
                 {
+                    Thread.CurrentThread.CurrentUICulture = new CultureInfo(_config.CultureInfo.Culture);//??
+
                     Console.WriteLine(Logs.NewFile, e.Name);
-                    foreach (var rule in config.Rules)
+                    foreach (var rule in _config.Rules)
                     {
                         var _rule = rule as RuleElement;
                         if (e.Name.Contains(_rule?.Name ?? throw new InvalidOperationException()))
                         {
-                            
                             Console.WriteLine(Logs.AppropriateRule, _rule.Name);
                             var prefix = AddPrefixToName(_rule.IsAddDate,
                                 _rule.IsAddNumber);
@@ -52,10 +57,9 @@ namespace ConsoleApp1
                         }
 
                         MoveWithReplace(e.FullPath,
-                            config.DefaultFolder.Path + e.Name);
+                            _config.DefaultFolder.Path + e.Name);
                         isMoved = true;
                         break;
-
                     }
 
                     Console.WriteLine(Logs.Exit);
@@ -88,7 +92,7 @@ namespace ConsoleApp1
 
             if (isAddDate == true)
             {
-                prefix += $"{DateTime.UtcNow:mm-dd-yy}_";
+                prefix = $" {DateTime.Today.ToString(Logs.DatePrefix)}_";
             }
 
             if (isAddNumber == true)
@@ -115,7 +119,6 @@ namespace ConsoleApp1
             catch (Exception e)
             {
                 Console.WriteLine(Logs.ErrorFileNotMoved + e.Message);
-
             }
         }
     }
