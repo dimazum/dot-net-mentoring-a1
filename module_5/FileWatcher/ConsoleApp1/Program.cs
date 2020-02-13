@@ -16,11 +16,8 @@ namespace ConsoleApp1
     class Program
     {
         static void Main(string[] args)
-        { 
-            var fileWatcher = new FileWatcher();
-            fileWatcher.StartWatching();
-
-            Console.ReadLine();
+        {
+            Bootstrap.Start();
         }
    }
 }

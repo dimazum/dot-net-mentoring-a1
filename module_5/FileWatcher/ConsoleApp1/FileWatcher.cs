@@ -18,9 +18,9 @@ namespace ConsoleApp1
         private int _count;
         private readonly WatcherConfigurationSection _config;
 
-        public FileWatcher()
+        public FileWatcher(WatcherConfigurationSection config)
         {
-            _config = (WatcherConfigurationSection)ConfigurationManager.GetSection("watcherSection");
+            _config = config;
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(_config.CultureInfo.Culture);
         }
 
@@ -71,6 +71,12 @@ namespace ConsoleApp1
                 }
             }
 
+            Console.ReadLine();
+
+            foreach (var fileSystemWatcher in fileSystemWatcherList)
+            {
+                fileSystemWatcher.Dispose();
+            }
         }
 
         private IEnumerable<FileSystemWatcher> FileSystemWatcherInit( IEnumerable folders)

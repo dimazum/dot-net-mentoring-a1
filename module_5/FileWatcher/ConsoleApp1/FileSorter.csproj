@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bootstrap.cs" />
     <Compile Include="Configuration\CultureElement.cs" />
     <Compile Include="Configuration\DefaultFolderElement.cs" />
     <Compile Include="Configuration\FolderElement.cs" />
