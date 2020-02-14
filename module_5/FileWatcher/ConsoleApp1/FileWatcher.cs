@@ -28,8 +28,6 @@ namespace ConsoleApp1
         {
             var fileSystemWatcherList = FileSystemWatcherInit(_config.Folders);
 
-            var isMoved = false;
-
             Console.WriteLine(Logs.StartWatching);
             Console.WriteLine(Logs.Exit);
 
@@ -38,6 +36,7 @@ namespace ConsoleApp1
                 fileSystemWatcher.EnableRaisingEvents = true;
                 fileSystemWatcher.Created += (sender, e) =>
                 {
+                    var isMoved = false;
                     Thread.CurrentThread.CurrentUICulture = new CultureInfo(_config.CultureInfo.Culture);//??
 
                     Console.WriteLine(Logs.NewFile, e.Name);
@@ -50,25 +49,22 @@ namespace ConsoleApp1
                             var prefix = AddPrefixToName(_rule.IsAddDate,
                                 _rule.IsAddNumber);
 
-                            MoveWithReplace(e.FullPath,$"{ _rule.Folder}/{prefix + e.Name}");
- 
+                            MoveWithReplace(e.FullPath, $"{ _rule.Folder}\\{prefix + e.Name}");
+
                             isMoved = true;
                             break;
                         }
+                    }
 
+                    if (!isMoved)
+                    {
                         MoveWithReplace(e.FullPath,
                             _config.DefaultFolder.Path + e.Name);
                         isMoved = true;
-                        break;
                     }
 
                     Console.WriteLine(Logs.Exit);
                 };
-
-                if (isMoved)
-                {
-                    break;
-                }
             }
 
             Console.ReadLine();
