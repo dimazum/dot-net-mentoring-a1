@@ -87,7 +87,7 @@ namespace MyIoC
                 }
                 else
                 {
-                    throw new Exception("Type has constructor with parameters.");
+                    throw new Exception("Type has a constructor with parameters.");
                 }
             }
 
@@ -133,8 +133,9 @@ namespace MyIoC
 
         public ParameterInfo[] GetConstructorParamsInfo(Type type)
         {
-            var constructors = type.GetTypeInfo().DeclaredConstructors;
-            var constructorInfo = constructors.First();
+            var constructorInfo = type.GetConstructors()
+                                      .SingleOrDefault(x => x.GetCustomAttributes(typeof(ImportConstructorAttribute), false).Any())
+                                   ?? type.GetConstructors().First();
             return constructorInfo.GetParameters();
         }
 
