@@ -131,7 +131,7 @@ namespace MyIoC
             return instance;
         }
 
-        public ParameterInfo[] GetConstructorParamsInfo(Type type)
+        private ParameterInfo[] GetConstructorParamsInfo(Type type)
         {
             var constructorInfo = type.GetConstructors()
                                       .SingleOrDefault(x => x.GetCustomAttributes(typeof(ImportConstructorAttribute), false).Any())
@@ -139,7 +139,7 @@ namespace MyIoC
             return constructorInfo.GetParameters();
         }
 
-        public List<object> GetConstructorParamsObj(Type type)
+        private List<object> GetConstructorParamsObj(Type type)
         {
             var ctorParams = GetConstructorParamsInfo(type);
             var paramsObjects = new List<object>();
