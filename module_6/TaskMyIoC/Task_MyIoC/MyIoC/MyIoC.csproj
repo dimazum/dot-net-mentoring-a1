@@ -52,11 +52,13 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Container.cs" />
+    <Compile Include="Exceptions\UnregisteredTypeException.cs" />
     <Compile Include="ICustomerDAL.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="ImportAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
