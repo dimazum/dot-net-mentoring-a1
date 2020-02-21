@@ -12,11 +12,8 @@ namespace MyIOC.Console
     {
         static void Main(string[] args)
         {
-
             Container container = new Container();
             container.Sample();
-
-
         }
     }
 }

@@ -94,6 +94,11 @@ namespace MyIoC
             return instance;
         }
 
+        public Dictionary<Type, Type> GetRegisteredTypes()
+        {
+            return _registeredTypesDictionary;
+        }
+
         private object CreateInstanceUsingCtor(Type type)
         {
             var parameters = GetConstructorParamsObj(type).ToArray();

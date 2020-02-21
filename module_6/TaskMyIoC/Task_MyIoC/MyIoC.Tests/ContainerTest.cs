@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using MyIoC.Exceptions;
 using MyIoC.TestAssembly;
@@ -11,33 +13,36 @@ namespace MyIoC.Tests
     {
         private Container _container;
         private  Dictionary<Type, Type> _registeredTypesDictionary;
+        private Dictionary<Type, Type> _registeredTypesDictionary2 = new Dictionary<Type, Type>()
+        {
+            { typeof(ITestClass1), typeof(TestClass1)}
+        };
+        private Assembly _assembly;
         [SetUp]
         public void Setup()
         {
             _container = new Container();
-            _registeredTypesDictionary = new Dictionary<Type, Type>();
+            _registeredTypesDictionary = new Dictionary<Type, Type>()
+            {
+                { typeof(ITestClass1), typeof(TestClass1)}
+            };
+
+            _assembly = Assembly.Load("MyIoC.TestAssembly");
         }
 
         [Test]
-        public void Test1()
+        public void AddAssembly_DictionariesAreEqual()
         {
-            var assembly = Assembly.Load("MyIoC.TestAssembly");
-            //var assembly = Assembly.GetExecutingAssembly();
-            foreach (var typeInfo in assembly.DefinedTypes)
-            {
-                foreach (ExportAttribute exportAttribute in typeInfo.GetCustomAttributes<ExportAttribute>())
-                {
-                    if (exportAttribute.Contract != null)
-                        _registeredTypesDictionary.Add(exportAttribute.Contract, typeInfo);
-                    else
-                        _registeredTypesDictionary.Add(typeInfo, typeInfo);
-                }
-            }
+            _container.AddAssembly(_assembly);
 
-            //_container.CreateInstance()
+            var actual = _container.GetRegisteredTypes();
+
+            var isEqual = _registeredTypesDictionary.OrderBy(pair => pair.Key)
+                .SequenceEqual(actual.OrderBy(pair => pair.Key));
+
+            Assert.IsTrue(isEqual);
 
         }
-
 
         [Test]
         public void CreateInstance_NotNull()
@@ -67,14 +72,11 @@ namespace MyIoC.Tests
             Assert.AreEqual(expected.GetType(), instance.GetType());
         }
 
-
-
         [Test]
         public void CreateInstance_UnregisteredTypeException()
         {
             Assert.Throws<UnregisteredTypeException>(()=>_container.CreateInstance(typeof(TestClass1)));
         }
-
 
         [Test]
         public void CreateInstance_TwoRegistrationWaysException()
@@ -92,7 +94,6 @@ namespace MyIoC.Tests
             }
         }
     }
-
 
     [Export(typeof(ITestClass1))]
     public class TestClass1 : ITestClass1
