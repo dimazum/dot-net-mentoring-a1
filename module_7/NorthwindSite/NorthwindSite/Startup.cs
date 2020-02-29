@@ -30,9 +30,10 @@ namespace NorthwindSite
             services.AddControllersWithViews();
 
             services.AddDbContext<NorthwindContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("RazorPagesMovieContext")));
+                options.UseSqlServer(Configuration.GetConnectionString("NorthwindContext")));
 
             services.AddTransient<ICategoriesService, CategoriesService>();
+            services.AddTransient<IProductsService, ProductsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

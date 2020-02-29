@@ -6,8 +6,9 @@ using Northwind.Data.Models;
 
 namespace NorthwindSite.Models
 {
-    public class CategoriesPageViewModel
+    public class ProductsPageViewModel
     {
-        public IEnumerable<Categories> Categories { get; set; }
+        public IEnumerable<Products> Products { get; set; }
+        public PaginationInfo PaginationInfo { get; set; }
     }
 }

@@ -18,12 +18,14 @@ namespace NorthwindSite.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IServiceProvider _serviceProvider;
         private readonly ICategoriesService _categoriesService;
+        private readonly IProductsService _productsService;
 
-        public HomeController(ILogger<HomeController> logger, IServiceProvider serviceProvider, ICategoriesService categoriesService)
+        public HomeController(ILogger<HomeController> logger, IServiceProvider serviceProvider, ICategoriesService categoriesService, IProductsService productsService)
         {
             _logger = logger;
             _serviceProvider = serviceProvider;
             _categoriesService = categoriesService;
+            _productsService = productsService;
         }
 
         public IActionResult Index()
@@ -38,17 +40,22 @@ namespace NorthwindSite.Controllers
             var categories = _categoriesService.GetCategories();
             var categoriesViewModel = new CategoriesPageViewModel()
             {
-                categories = categories
+                Categories = categories
             };
             return View(categoriesViewModel);
         }
 
-        public IActionResult Products()
+        public IActionResult Products(int page = 1)
         {
-            var products = _categoriesService.GetProducts();
+            var pageSize = 10;
+            var products = _productsService.GetProducts(page, pageSize);
+            var productQty = _productsService.GetProductsQty();
+            var paginationInfo = new PaginationInfo(productQty, page, pageSize);
+
             var categoriesViewModel = new ProductsPageViewModel()
             {
-                products = products
+                Products = products,
+                PaginationInfo = paginationInfo
             };
             return View(categoriesViewModel);
         }
