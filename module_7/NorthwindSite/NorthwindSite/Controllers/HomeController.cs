@@ -33,6 +33,26 @@ namespace NorthwindSite.Controllers
             return View();
         }
 
+        public IActionResult Categories()
+        {
+            var categories = _categoriesService.GetCategories();
+            var categoriesViewModel = new CategoriesPageViewModel()
+            {
+                categories = categories
+            };
+            return View(categoriesViewModel);
+        }
+
+        public IActionResult Products()
+        {
+            var products = _categoriesService.GetProducts();
+            var categoriesViewModel = new ProductsPageViewModel()
+            {
+                products = products
+            };
+            return View(categoriesViewModel);
+        }
+
         public IActionResult Privacy()
         {
             return View();
