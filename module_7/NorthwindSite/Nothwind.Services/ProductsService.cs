@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Northwind.Data;
 using Northwind.Data.Models;
 using Nothwind.Services.Interafaces;
 
@@ -11,17 +13,15 @@ namespace Nothwind.Services
 {
     public class ProductsService : IProductsService
     {
-        private readonly IServiceProvider _serviceProvider;
-        public ProductsService(IServiceProvider serviceProvider)
+        private readonly IContextFactory _contextFactory;
+        public ProductsService(IContextFactory contextFactory)
         {
-            _serviceProvider = serviceProvider;
+            _contextFactory = contextFactory;
         }
+
         public IEnumerable<Products> GetProducts(int page, int pageSize)
         {
-            var scopeFactory = _serviceProvider.GetRequiredService<IServiceScopeFactory>();
-            using (var scope = scopeFactory.CreateScope())
-
-            using (var dbContext = scope.ServiceProvider.GetRequiredService<NorthwindContext>())
+            using (var dbContext = _contextFactory.Create<NorthwindContext>())
             {
                 return dbContext
                     .Products
@@ -35,14 +35,20 @@ namespace Nothwind.Services
 
         public int GetProductsQty()
         {
-            var scopeFactory = _serviceProvider.GetRequiredService<IServiceScopeFactory>();
-            using (var scope = scopeFactory.CreateScope())
-
-            using (var dbContext = scope.ServiceProvider.GetRequiredService<NorthwindContext>())
+            using (var dbContext = _contextFactory.Create<NorthwindContext>())
             {
                 return dbContext
                     .Products
                     .Count();
+            }
+        }
+
+        public void CreateProduct(Products product)
+        {
+            using (var dbContext = _contextFactory.Create<NorthwindContext>())
+            {
+                dbContext.Products.Add(product);
+                dbContext.SaveChanges();
             }
         }
     }

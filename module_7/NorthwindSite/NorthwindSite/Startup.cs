@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Northwind.Data;
 using Northwind.Data.Models;
 using Nothwind.Services;
 using Nothwind.Services.Interafaces;
@@ -34,6 +35,7 @@ namespace NorthwindSite
 
             services.AddTransient<ICategoriesService, CategoriesService>();
             services.AddTransient<IProductsService, ProductsService>();
+            services.AddTransient<IContextFactory, ContextFactory>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

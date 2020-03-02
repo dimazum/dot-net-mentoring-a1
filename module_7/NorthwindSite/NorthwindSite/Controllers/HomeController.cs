@@ -30,8 +30,6 @@ namespace NorthwindSite.Controllers
 
         public IActionResult Index()
         {
-            var msg = _categoriesService.GetCategories();
-
             return View();
         }
 
@@ -51,13 +49,38 @@ namespace NorthwindSite.Controllers
             var products = _productsService.GetProducts(page, pageSize);
             var productQty = _productsService.GetProductsQty();
             var paginationInfo = new PaginationInfo(productQty, page, pageSize);
+            var productViewModel = new ProductViewModel()
+            {
+                Categories = _categoriesService.GetCategories(),
+                Suppliers = _categoriesService.GetSuppliers()
+            };
 
             var categoriesViewModel = new ProductsPageViewModel()
             {
                 Products = products,
-                PaginationInfo = paginationInfo
+                PaginationInfo = paginationInfo,
+                ProductViewModel = productViewModel
+
             };
             return View(categoriesViewModel);
+        }
+
+        public IActionResult CreateProduct(ProductViewModel productViewModel)
+        {
+            var category = _categoriesService.GetCategoryByName(productViewModel.Category);
+            var supplier = _categoriesService.GetSupplierByName(productViewModel.Supplier);
+
+            var product = new Products
+            {
+                ProductName = productViewModel.ProductName,
+                QuantityPerUnit = productViewModel.QuantityPerUnit,
+                UnitPrice = productViewModel.UnitPrice,
+                CategoryId = category.CategoryId,
+                SupplierId = supplier.SupplierId
+            };
+            _productsService.CreateProduct(product);
+
+            return Redirect("Products");
         }
 
         public IActionResult Privacy()

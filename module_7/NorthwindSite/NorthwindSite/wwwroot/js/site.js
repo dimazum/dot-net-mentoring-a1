@@ -2,3 +2,24 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+
+
+$(document).ready(function() {
+
+    $('.btn-newProduct').on('click',
+        function() {
+            $('.products__popup').addClass("products__popup-on");
+        });
+
+    $('.products__overlay').on('click',
+        function () {
+            $('.products__popup').removeClass("products__popup-on");
+        });
+
+    $('.products__btn-close').on('click',
+        function () {
+            $('.products__popup').removeClass("products__popup-on");
+        });
+
+    
+});

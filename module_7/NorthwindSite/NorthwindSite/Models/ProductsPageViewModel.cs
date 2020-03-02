@@ -10,5 +10,6 @@ namespace NorthwindSite.Models
     {
         public IEnumerable<Products> Products { get; set; }
         public PaginationInfo PaginationInfo { get; set; }
+        public ProductViewModel ProductViewModel { get; set; }
     }
 }
