@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -16,14 +17,13 @@ namespace NorthwindSite.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IServiceProvider _serviceProvider;
         private readonly ICategoriesService _categoriesService;
         private readonly IProductsService _productsService;
+        private static int _currentPage; //???
 
-        public HomeController(ILogger<HomeController> logger, IServiceProvider serviceProvider, ICategoriesService categoriesService, IProductsService productsService)
+        public HomeController(ILogger<HomeController> logger, ICategoriesService categoriesService, IProductsService productsService)
         {
             _logger = logger;
-            _serviceProvider = serviceProvider;
             _categoriesService = categoriesService;
             _productsService = productsService;
         }
@@ -43,30 +43,64 @@ namespace NorthwindSite.Controllers
             return View(categoriesViewModel);
         }
 
-        public IActionResult Products(int page = 1)
+        public IActionResult Products( int page = 1)
         {
+           var productsPageViewModel  = CreateProductsPageViewModel(page);
+
+            return View(productsPageViewModel);
+        }
+
+        private ProductsPageViewModel CreateProductsPageViewModel(int page , ProductViewModel productViewModel = null)
+        {
+            _currentPage = page;
             var pageSize = 10;
+
+            ProductViewModel _productViewModel = null;
+
+            if (productViewModel != null)
+            {
+                productViewModel.Categories = _categoriesService.GetCategories();
+                productViewModel.Suppliers = _categoriesService.GetSuppliers();
+                productViewModel.PopupOn = true;
+            }
+            else
+            {
+                _productViewModel = new ProductViewModel()
+                {
+                    Categories = _categoriesService.GetCategories(),
+                    Suppliers = _categoriesService.GetSuppliers(),
+                };
+            }
+
             var products = _productsService.GetProducts(page, pageSize);
             var productQty = _productsService.GetProductsQty();
             var paginationInfo = new PaginationInfo(productQty, page, pageSize);
-            var productViewModel = new ProductViewModel()
-            {
-                Categories = _categoriesService.GetCategories(),
-                Suppliers = _categoriesService.GetSuppliers()
-            };
 
-            var categoriesViewModel = new ProductsPageViewModel()
+            var productsPageViewModel = new ProductsPageViewModel()
             {
                 Products = products,
                 PaginationInfo = paginationInfo,
-                ProductViewModel = productViewModel
-
+                ProductViewModel = productViewModel ?? _productViewModel
             };
-            return View(categoriesViewModel);
+
+            return productsPageViewModel;
         }
 
         public IActionResult CreateProduct(ProductViewModel productViewModel)
         {
+
+            if (productViewModel.ProductName?.Length < 10)
+            {
+                ModelState.AddModelError(nameof(productViewModel.ProductName), "Invalid string length");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                var productsPageViewModel = CreateProductsPageViewModel(_currentPage, productViewModel);
+
+                return View("Products", productsPageViewModel);
+            }
+
             var category = _categoriesService.GetCategoryByName(productViewModel.Category);
             var supplier = _categoriesService.GetSupplierByName(productViewModel.Supplier);
 
@@ -80,7 +114,7 @@ namespace NorthwindSite.Controllers
             };
             _productsService.CreateProduct(product);
 
-            return Redirect("Products");
+            return RedirectToAction("Products");
         }
 
         public IActionResult Privacy()

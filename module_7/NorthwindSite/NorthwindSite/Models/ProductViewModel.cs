@@ -16,6 +16,7 @@ namespace NorthwindSite.Models
         public decimal? UnitPrice { get; set; }
         public string Category { get; set; }
         public string Supplier { get; set; }
+        public bool PopupOn { get; set; }
 
         public virtual IEnumerable<Categories> Categories { get; set; }
         public virtual IEnumerable<Suppliers> Suppliers { get; set; }

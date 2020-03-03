@@ -1,7 +1,9 @@
 ﻿@model NorthwindSite.Models.ProductsPageViewModel
 @{
     ViewData["Title"] = "Products";
+    var state = ViewData.ModelState;
     int count = Model.PaginationInfo.PageSize * (Model.PaginationInfo.PageNumber - 1) + 1;
+
 }
 
 <h1>Products</h1>
@@ -61,47 +63,11 @@
         <i class="glyphicon glyphicon-chevron-right"></i>
     </a>
 }
-<div class="products__popup">
-    <div class="products__overlay">
-    </div>
-    <div class="products__newProduct">
-        <span class="products__btn-close">&#10006;</span>
-        <form asp-action="CreateProduct" asp-controller="Home" asp-antiforgery="true">
-            <div>
-                <div class="validation" asp-validation-summary="ModelOnly"></div>
-                <div>
-                    <label class="produts__nabel font-weight-bold" asp-for="@Model.ProductViewModel.ProductName"></label>
-                    <input type="text" asp-for="@Model.ProductViewModel.ProductName" />
-                    <span asp-validation-for="@Model.ProductViewModel.ProductName"></span>
-                </div>
-                <div>
-                    <label class="produts__nabel font-weight-bold" asp-for="@Model.ProductViewModel.Supplier"></label>
-                    <select asp-for="@Model.ProductViewModel.Supplier" asp-items="new SelectList(Model.ProductViewModel.Suppliers.Select(x => x.CompanyName))"></select>
-                </div>
-                <div>
-                    <label class="produts__nabel font-weight-bold" asp-for="@Model.ProductViewModel.Category"></label>
-                    <select asp-for="@Model.ProductViewModel.Category" asp-items="new SelectList(Model.ProductViewModel.Categories.Select(x => x.CategoryName))"></select>
-                </div>
-                <div>
-                    <label class="produts__nabel font-weight-bold" asp-for="@Model.ProductViewModel.QuantityPerUnit"></label>
-                    <input type="text" asp-for="@Model.ProductViewModel.QuantityPerUnit" />
-                </div>
-                <div>
-                    <label class="produts__nabel font-weight-bold" asp-for="@Model.ProductViewModel.UnitPrice"></label>
-                    <input type="text" asp-for="@Model.ProductViewModel.UnitPrice" />
-                    <span asp-validation-for="@Model.ProductViewModel.UnitPrice"></span>
-                </div>
-                <div class="pt-4 float-right">
-                    <input class="btn btn-outline-dark" type="submit" value="Save" />
-                </div>
-            </div>
-        </form>
 
-    </div>
-</div>
+@{await Html.RenderPartialAsync("_CreateProductForm", Model.ProductViewModel);}
 
-@section scripts{
+@*@section scripts{
 
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-}
+}*@
