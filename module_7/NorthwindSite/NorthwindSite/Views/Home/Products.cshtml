@@ -18,6 +18,7 @@
             <th scope="col">QuantityPerUnit</th>
             <th scope="col">Price</th>
             <th scope="col">InStock</th>
+            <th scope="col">Edit</th>
         </tr>
     </thead>
     <tbody>
@@ -26,12 +27,17 @@
         {
             <tr>
                 <th scope="col">@(count++)</th>
-                <th scope="col">@cat.ProductName</th>
-                <th scope="col">@(cat.Supplier?.CompanyName)</th>
-                <th scope="col">@(cat.Category?.CategoryName)</th>
-                <th scope="col">@cat.QuantityPerUnit</th>
-                <th scope="col">@cat.UnitPrice</th>
-                <th scope="col">@cat.UnitsInStock</th>
+                <th productName data-id="@cat.ProductId" scope="col">@cat.ProductName</th>
+                <th companyName scope="col">@(cat.Supplier?.CompanyName)</th>
+                <th categoryName scope="col">@(cat.Category?.CategoryName)</th>
+                <th qtyPerUnit scope="col">@cat.QuantityPerUnit</th>
+                <th unitPrice scope="col">@cat.UnitPrice</th>
+                <th unitsInStock scope="col">@cat.UnitsInStock</th>
+                <th scope="col">
+                    <a class="btn btn-sm btn-primary btn-updateProduct">
+                        Edit
+                    </a>
+                </th>
             </tr>
         }
     </tbody>
@@ -66,8 +72,8 @@
 
 @{await Html.RenderPartialAsync("_CreateProductForm", Model.ProductViewModel);}
 
-@*@section scripts{
+@section scripts{
 
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-}*@
+}

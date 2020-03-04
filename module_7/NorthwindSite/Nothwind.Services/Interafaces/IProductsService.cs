@@ -10,5 +10,7 @@ namespace Nothwind.Services.Interafaces
         IEnumerable<Products> GetProducts(int page, int pageSize);
         int GetProductsQty();
         void CreateProduct(Products product);
+        Products GetProductById(int id);
+        void UpdateProduct(Products product);
     }
 }

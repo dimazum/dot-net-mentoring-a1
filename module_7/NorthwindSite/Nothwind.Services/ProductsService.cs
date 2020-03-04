@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -49,6 +50,25 @@ namespace Nothwind.Services
             {
                 dbContext.Products.Add(product);
                 dbContext.SaveChanges();
+            }
+        }
+
+        public Products GetProductById(int id)
+        {
+            using (var dbContext = _contextFactory.Create<NorthwindContext>())
+            {
+                return dbContext
+                    .Products
+                    .First(x => x.ProductId == id);
+            }
+        }
+
+        public void UpdateProduct(Products product)
+        {
+            using (var dbContext = _contextFactory.Create<NorthwindContext>())
+            {
+               dbContext.Entry(product).State = EntityState.Modified;
+               dbContext.SaveChanges();
             }
         }
     }

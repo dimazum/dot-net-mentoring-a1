@@ -9,11 +9,14 @@ namespace NorthwindSite.Models
 {
     public class ProductViewModel
     {
+        public int ProductId { get; set; }
         [Required]
         public string ProductName { get; set; }
         public string QuantityPerUnit { get; set; }
-        [RegularExpression("([1-9][0-9]*)", ErrorMessage = "Count must be a natural number")]
+
+        [RegularExpression("([1-9][0-9.]*)", ErrorMessage = "Count must be number")]
         public decimal? UnitPrice { get; set; }
+
         public string Category { get; set; }
         public string Supplier { get; set; }
         public bool PopupOn { get; set; }

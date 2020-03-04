@@ -10,29 +10,30 @@
     </div>
     <div class="products__newProduct">
         <span class="products__btn-close">&#10006;</span>
-        <form asp-action="CreateProduct" asp-controller="Home" asp-antiforgery="true">
+        <form id ="form" asp-action="CreateProduct" asp-controller="Home" asp-antiforgery="true">
             <div>
                 <div class="validation" asp-validation-summary="ModelOnly"></div>
+                <input id="productId" type="hidden" asp-for="ProductId" />
                 <div>
                     <label class="produts__nabel font-weight-bold" asp-for="ProductName"></label>
-                    <input type="text" asp-for="ProductName" />
+                    <input id="productName" type="text" asp-for="ProductName" />
                     <span asp-validation-for="ProductName"></span>
                 </div>
                 <div>
                     <label class="produts__nabel font-weight-bold" asp-for="Supplier"></label>
-                    <select asp-for="Supplier" asp-items="new SelectList(Model.Suppliers.Select(x => x.CompanyName))"></select>
+                    <select id="companyName" asp-for="Supplier" asp-items="new SelectList(Model.Suppliers.Select(x => x.CompanyName))"></select>
                 </div>
                 <div>
                     <label class="produts__nabel font-weight-bold" asp-for="@Model.Category"></label>
-                    <select asp-for="Category" asp-items="new SelectList(Model.Categories.Select(x => x.CategoryName))"></select>
+                    <select id="categoryName" asp-for="Category" asp-items="new SelectList(Model.Categories.Select(x => x.CategoryName))"></select>
                 </div>
                 <div>
                     <label class="produts__nabel font-weight-bold" asp-for="QuantityPerUnit"></label>
-                    <input type="text" asp-for="QuantityPerUnit" />
+                    <input id="qtyPerUnit" type="text" asp-for="QuantityPerUnit" />
                 </div>
                 <div>
                     <label class="produts__nabel font-weight-bold" asp-for="UnitPrice"></label>
-                    <input type="text" asp-for="UnitPrice" />
+                    <input id="unitPrice" type="text" asp-for="UnitPrice" />
                     <span asp-validation-for="UnitPrice"></span>
                 </div>
                 <div class="pt-4 float-right">

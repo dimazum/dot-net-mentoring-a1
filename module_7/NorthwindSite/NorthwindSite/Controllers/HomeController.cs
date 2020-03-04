@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -89,7 +90,7 @@ namespace NorthwindSite.Controllers
         public IActionResult CreateProduct(ProductViewModel productViewModel)
         {
 
-            if (productViewModel.ProductName?.Length < 10)
+            if (productViewModel.ProductName?.Length < 2)
             {
                 ModelState.AddModelError(nameof(productViewModel.ProductName), "Invalid string length");
             }
@@ -115,6 +116,38 @@ namespace NorthwindSite.Controllers
             _productsService.CreateProduct(product);
 
             return RedirectToAction("Products");
+        }
+
+        public IActionResult UpdateProduct(ProductViewModel productViewModel)
+        {
+            if (productViewModel.ProductName?.Length < 2)
+            {
+                ModelState.AddModelError(nameof(productViewModel.ProductName), "Invalid string length");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                var productsPageViewModel = CreateProductsPageViewModel(_currentPage, productViewModel);
+
+                return View("Products", productsPageViewModel);
+            }
+
+            var category = _categoriesService.GetCategoryByName(productViewModel.Category);
+            var supplier = _categoriesService.GetSupplierByName(productViewModel.Supplier);
+
+            var product = _productsService.GetProductById(productViewModel.ProductId);
+            if (product != null)
+            {
+                product.ProductName = productViewModel.ProductName;
+                product.QuantityPerUnit = productViewModel.QuantityPerUnit;
+                product.UnitPrice = productViewModel.UnitPrice;
+                product.CategoryId = category.CategoryId;
+                product.SupplierId = supplier.SupplierId;
+
+                _productsService.UpdateProduct(product);
+            }
+  
+            return RedirectToAction("Products",new {page = _currentPage });
         }
 
         public IActionResult Privacy()
