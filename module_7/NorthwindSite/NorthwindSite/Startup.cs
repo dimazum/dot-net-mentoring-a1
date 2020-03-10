@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -12,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Northwind.Data;
 using Northwind.Data.Models;
+using NorthwindSite.Extensions;
 using Nothwind.Services;
 using Nothwind.Services.Interafaces;
 
@@ -40,9 +42,11 @@ namespace NorthwindSite
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory, ILogger<Startup> logger)
         {
-            logger.LogInformation("Processing request fewfwefwefw");
+            loggerFactory.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt"));
+            env.EnvironmentName = "Production";
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -50,10 +54,13 @@ namespace NorthwindSite
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+
                 app.UseHsts();
             }
+            app.UseMiddleware<ErrorLoggingMiddleware>();
+
             app.UseHttpsRedirection();
+
             app.UseStaticFiles();
 
             app.UseRouting();

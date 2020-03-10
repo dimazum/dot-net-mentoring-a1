@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -33,6 +35,9 @@ namespace NorthwindSite.Controllers
 
         public IActionResult Index()
         {
+            var error = this.HttpContext.Features.Get<IExceptionHandlerFeature>().Error;
+
+
             return View();
         }
 
@@ -63,6 +68,8 @@ namespace NorthwindSite.Controllers
         private ProductsPageViewModel CreateProductsPageViewModel(int page , ProductViewModel productViewModel = null)
         {
             var pageSize = ConvertStrToInt(_configuration["PageSize"]);
+            
+            _logger.LogInformation("Read configuration {0}",pageSize);
 
             ProductViewModel _productViewModel = null;
 
@@ -166,7 +173,9 @@ namespace NorthwindSite.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            //return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            
+            return View("ErrorFriendly");
         }
     }
 }

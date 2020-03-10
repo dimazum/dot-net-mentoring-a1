@@ -19,4 +19,8 @@
     <ProjectReference Include="..\Nothwind.Services\Nothwind.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
+  </ItemGroup>
+
 </Project>
