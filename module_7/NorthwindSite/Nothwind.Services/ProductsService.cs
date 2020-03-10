@@ -14,17 +14,27 @@ namespace Nothwind.Services
 {
     public class ProductsService : IProductsService
     {
-        private readonly IContextFactory _contextFactory;
-        public ProductsService(IContextFactory contextFactory)
+        private readonly NorthwindContext _northwindContext;
+        public ProductsService(NorthwindContext context)
         {
-            _contextFactory = contextFactory;
+            _northwindContext = context;
         }
 
         public IEnumerable<Products> GetProducts(int page, int pageSize)
         {
-            using (var dbContext = _contextFactory.Create<NorthwindContext>())
+            IEnumerable<Products> products = null;
+            if (pageSize == 0)
             {
-                return dbContext
+                products = _northwindContext
+                    .Products
+                    .Include(x => x.Category)
+                    .Include(x => x.Supplier)
+                    .ToList();
+            }
+
+            else if (pageSize > 0)
+            {
+                products = _northwindContext
                     .Products
                     .Skip((page - 1) * pageSize)
                     .Take(pageSize)
@@ -32,44 +42,34 @@ namespace Nothwind.Services
                     .Include(x => x.Supplier)
                     .ToList();
             }
+
+            return products;
         }
 
         public int GetProductsQty()
         {
-            using (var dbContext = _contextFactory.Create<NorthwindContext>())
-            {
-                return dbContext
-                    .Products
-                    .Count();
-            }
+            return _northwindContext
+                .Products
+                .Count();
         }
 
         public void CreateProduct(Products product)
         {
-            using (var dbContext = _contextFactory.Create<NorthwindContext>())
-            {
-                dbContext.Products.Add(product);
-                dbContext.SaveChanges();
-            }
+            _northwindContext.Products.Add(product);
+            _northwindContext.SaveChanges();
         }
 
         public Products GetProductById(int id)
         {
-            using (var dbContext = _contextFactory.Create<NorthwindContext>())
-            {
-                return dbContext
-                    .Products
-                    .First(x => x.ProductId == id);
-            }
+            return _northwindContext
+                .Products
+                .First(x => x.ProductId == id);
         }
 
         public void UpdateProduct(Products product)
         {
-            using (var dbContext = _contextFactory.Create<NorthwindContext>())
-            {
-               dbContext.Entry(product).State = EntityState.Modified;
-               dbContext.SaveChanges();
-            }
+            _northwindContext.Entry(product).State = EntityState.Modified;
+            _northwindContext.SaveChanges();
         }
     }
 }

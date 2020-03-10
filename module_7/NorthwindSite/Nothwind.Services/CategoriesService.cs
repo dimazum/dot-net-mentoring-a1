@@ -12,46 +12,34 @@ namespace Nothwind.Services
 {
     public class CategoriesService : ICategoriesService
     {
-        private readonly IContextFactory _contextFactory;
-        public CategoriesService(IContextFactory contextFactory)
+        private readonly NorthwindContext _northwindContext;
+        public CategoriesService(NorthwindContext context)
         {
-            _contextFactory = contextFactory;
+            _northwindContext = context;
         }
         public IEnumerable<Categories> GetCategories()
         {
-
-            using (var dbContext = _contextFactory.Create<NorthwindContext>() )
-            {
-                return dbContext.Categories.ToList();
-            }
+            return _northwindContext.Categories.ToList();
         }
 
         public Categories GetCategoryByName(string name)
         {
-            using (var dbContext = _contextFactory.Create<NorthwindContext>())
-            {
-                return dbContext
-                    .Categories
-                    .First(x => x.CategoryName == name);
-            }
+            return _northwindContext
+                .Categories
+                .First(x => x.CategoryName == name);
         }
 
         public IEnumerable<Suppliers> GetSuppliers()
         {
-            using (var dbContext = _contextFactory.Create<NorthwindContext>())
-            {
-                return dbContext.Suppliers.ToList();
-            }
+            return _northwindContext.Suppliers.ToList();
         }
 
         public Suppliers GetSupplierByName(string name)
         {
-            using (var dbContext = _contextFactory.Create<NorthwindContext>())
-            {
-                return dbContext
-                    .Suppliers
-                    .First(x => x.CompanyName == name);
-            }
+
+            return _northwindContext
+                .Suppliers
+                .First(x => x.CompanyName == name);
         }
     }
 }

@@ -45,3 +45,26 @@
     right: 10px;
     cursor: pointer;
 }
+/*.navbar-expand-sm .navbar-toggler {
+     display: block;
+}*/
+
+.navbar .container {
+    display: block;
+    justify-content: normal;
+}
+.myNavbar {
+    display: flex;
+    flex-direction: column !important;
+    background: #ffffff;
+    margin-left: 145px;
+    display: none;
+}
+
+.myNavbar__on {
+    display: block
+}
+
+.myBtn {
+    background: #ffffff;
+}

@@ -20,6 +20,7 @@ namespace NorthwindSite.Models
         public string Category { get; set; }
         public string Supplier { get; set; }
         public bool PopupOn { get; set; }
+        public int CurrentPage { get; set; }
 
         public virtual IEnumerable<Categories> Categories { get; set; }
         public virtual IEnumerable<Suppliers> Suppliers { get; set; }

@@ -49,5 +49,10 @@ $(document).ready(function() {
             $('.products__popup #unitPrice').val(unitPrice);
 
         });
+
+    $('.myBtn').on('click', function () {
+         $('.myNavbar').toggleClass("myNavbar__on");
+     });
+
     
 });

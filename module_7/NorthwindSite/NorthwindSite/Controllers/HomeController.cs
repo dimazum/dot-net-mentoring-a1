@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Northwind.Data.Models;
@@ -20,13 +21,14 @@ namespace NorthwindSite.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly ICategoriesService _categoriesService;
         private readonly IProductsService _productsService;
-        private static int _currentPage; //???
-
-        public HomeController(ILogger<HomeController> logger, ICategoriesService categoriesService, IProductsService productsService)
+        private readonly IConfiguration _configuration;
+         
+        public HomeController(ILogger<HomeController> logger, ICategoriesService categoriesService, IProductsService productsService, IConfiguration configuration)
         {
             _logger = logger;
             _categoriesService = categoriesService;
             _productsService = productsService;
+            _configuration = configuration;
         }
 
         public IActionResult Index()
@@ -51,10 +53,16 @@ namespace NorthwindSite.Controllers
             return View(productsPageViewModel);
         }
 
+        private int ConvertStrToInt(string str)
+        {
+            int.TryParse(str, out var number);
+
+             return number;
+        }
+
         private ProductsPageViewModel CreateProductsPageViewModel(int page , ProductViewModel productViewModel = null)
         {
-            _currentPage = page;
-            var pageSize = 10;
+            var pageSize = ConvertStrToInt(_configuration["PageSize"]);
 
             ProductViewModel _productViewModel = null;
 
@@ -97,7 +105,7 @@ namespace NorthwindSite.Controllers
 
             if (!ModelState.IsValid)
             {
-                var productsPageViewModel = CreateProductsPageViewModel(_currentPage, productViewModel);
+                var productsPageViewModel = CreateProductsPageViewModel(productViewModel.CurrentPage, productViewModel);
 
                 return View("Products", productsPageViewModel);
             }
@@ -127,7 +135,7 @@ namespace NorthwindSite.Controllers
 
             if (!ModelState.IsValid)
             {
-                var productsPageViewModel = CreateProductsPageViewModel(_currentPage, productViewModel);
+                var productsPageViewModel = CreateProductsPageViewModel(productViewModel.CurrentPage, productViewModel);
 
                 return View("Products", productsPageViewModel);
             }
@@ -147,7 +155,7 @@ namespace NorthwindSite.Controllers
                 _productsService.UpdateProduct(product);
             }
   
-            return RedirectToAction("Products",new {page = _currentPage });
+            return RedirectToAction("Products",new {page = productViewModel.CurrentPage });
         }
 
         public IActionResult Privacy()

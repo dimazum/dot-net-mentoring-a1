@@ -1,8 +1,9 @@
 ﻿@model NorthwindSite.Models.ProductsPageViewModel
 @{
     ViewData["Title"] = "Products";
-    var state = ViewData.ModelState;
+
     int count = Model.PaginationInfo.PageSize * (Model.PaginationInfo.PageNumber - 1) + 1;
+    Model.ProductViewModel.CurrentPage = Model.PaginationInfo.PageNumber;
 
 }
 
