@@ -1,0 +1,80 @@
+﻿@model NorthwindSite.Models.ProductsPageViewModel
+@{
+    ViewData["Title"] = "Products";
+
+    int count = Model.PaginationInfo.PageSize * (Model.PaginationInfo.PageNumber - 1) + 1;
+    Model.ProductViewModel.CurrentPage = Model.PaginationInfo.PageNumber;
+
+}
+
+<h1>Products</h1>
+
+<table class="table mt-1">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">ProductName</th>
+            <th scope="col">Supplier</th>
+            <th scope="col">Category</th>
+            <th scope="col">QuantityPerUnit</th>
+            <th scope="col">Price</th>
+            <th scope="col">InStock</th>
+            <th scope="col">Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var cat in Model.Products)
+        {
+            <tr>
+                <th scope="col">@(count++)</th>
+                <th productName data-id="@cat.ProductId" scope="col">@cat.ProductName</th>
+                <th companyName scope="col">@(cat.Supplier?.CompanyName)</th>
+                <th categoryName scope="col">@(cat.Category?.CategoryName)</th>
+                <th qtyPerUnit scope="col">@cat.QuantityPerUnit</th>
+                <th unitPrice scope="col">@cat.UnitPrice</th>
+                <th unitsInStock scope="col">@cat.UnitsInStock</th>
+                <th scope="col">
+                    <a class="btn btn-sm btn-primary btn-updateProduct">
+                        Edit
+                    </a>
+                </th>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="float-right">
+    <a class="btn btn-primary btn-newProduct ">
+        New product
+    </a>
+</div>
+
+
+@if (Model.PaginationInfo.HasPreviousPage)
+{
+    <a asp-controller="Home"
+       asp-action="Products"
+       asp-route-page="@(Model.PaginationInfo.PageNumber - 1)"
+       class="btn btn-outline-dark">
+        <i class="glyphicon glyphicon-chevron-left"></i>
+        Previous
+    </a>
+}
+@if (Model.PaginationInfo.HasNextPage)
+{
+    <a asp-controller="Home"
+       asp-action="Products"
+       asp-route-page="@(Model.PaginationInfo.PageNumber + 1)"
+       class="btn btn-outline-dark">
+        Next
+        <i class="glyphicon glyphicon-chevron-right"></i>
+    </a>
+}
+
+@{await Html.RenderPartialAsync("_CreateProductForm", Model.ProductViewModel);}
+
+@section scripts{
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
