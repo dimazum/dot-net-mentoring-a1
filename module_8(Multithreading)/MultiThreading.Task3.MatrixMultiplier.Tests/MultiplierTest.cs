@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MultiThreading.Task3.MatrixMultiplier.Matrices;
 using MultiThreading.Task3.MatrixMultiplier.Multipliers;
@@ -11,7 +12,12 @@ namespace MultiThreading.Task3.MatrixMultiplier.Tests
         [TestMethod]
         public void MultiplyMatrix3On3Test()
         {
-            TestMatrix3On3(new MatricesMultiplier());
+             TestMatrix3On3(new MatricesMultiplier());
+        }
+
+        [TestMethod]
+        public void MultiplyMatrix3On3TestParallel()
+        {
             TestMatrix3On3(new MatricesMultiplierParallel());
         }
 
@@ -20,6 +26,18 @@ namespace MultiThreading.Task3.MatrixMultiplier.Tests
         {
             // todo: implement a test method to check the size of the matrix which makes parallel multiplication more effective than
             // todo: the regular one
+            var efficiencyMatrixSize = 0;
+            for (int i = 1; i < 100; i++)
+            {
+                var timeMatrix5on5 = TestMatrixPerfomance(new MatricesMultiplier(), i);
+                var timeMatrix5on5Par = TestMatrixPerfomance(new MatricesMultiplierParallel(), i);
+                if (timeMatrix5on5Par < timeMatrix5on5)
+                {
+                    efficiencyMatrixSize = i;
+                    return;
+                }
+            }
+           
         }
 
         #region private methods
@@ -57,7 +75,11 @@ namespace MultiThreading.Task3.MatrixMultiplier.Tests
             m2.SetElement(2, 1, 8);
             m2.SetElement(2, 2, 9);
 
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
             var multiplied = matrixMultiplier.Multiply(m1, m2);
+            var time = stopwatch.Elapsed;
+
             Assert.AreEqual(448, multiplied.GetElement(0, 0));
             Assert.AreEqual(1826, multiplied.GetElement(0, 1));
             Assert.AreEqual(3052, multiplied.GetElement(0, 2));
@@ -71,6 +93,19 @@ namespace MultiThreading.Task3.MatrixMultiplier.Tests
             Assert.AreEqual(728, multiplied.GetElement(2, 2));
         }
 
+        TimeSpan TestMatrixPerfomance(IMatricesMultiplier matrixMultiplier, long matrixSize)
+        {
+            var firstMatrix = new Matrix(matrixSize, matrixSize, true);
+            var secondMatrix = new Matrix(matrixSize, matrixSize, true);
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            IMatrix resultMatrix = matrixMultiplier.Multiply(firstMatrix, secondMatrix);
+            stopwatch.Stop();
+            return stopwatch.Elapsed;
+        }
+
         #endregion
+
+
     }
 }

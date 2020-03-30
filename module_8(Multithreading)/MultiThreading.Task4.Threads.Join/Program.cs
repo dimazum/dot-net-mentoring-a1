@@ -10,11 +10,13 @@
  */
 
 using System;
+using System.Threading;
 
 namespace MultiThreading.Task4.Threads.Join
 {
     class Program
     {
+        static Semaphore sem = new Semaphore(1,1);
         static void Main(string[] args)
         {
             Console.WriteLine("4.	Write a program which recursively creates 10 threads.");
@@ -28,7 +30,60 @@ namespace MultiThreading.Task4.Threads.Join
 
             // feel free to add your code
 
+            Console.WriteLine($"The Main thread. ThreadId = {Thread.CurrentThread.ManagedThreadId}");
+
+            var count = 10;
+           // ThreadCreate(count);
+            ThreadPoolCreate(count);
+
             Console.ReadLine();
+        }
+
+        public static void ThreadCreate(int state)
+        {
+            int count = state;
+
+            if (count >= 0)
+            {
+                Console.WriteLine($"Count = {count}. ThreadId = {Thread.CurrentThread.ManagedThreadId}");
+                count--;
+
+                Thread thread = new Thread(() => ThreadCreate(count));
+                thread.Start();
+                thread.Join();
+            }
+            else
+            {
+                Console.WriteLine("Counter is less then zero");
+            }
+        }
+
+        public static void ThreadPoolCreate(int state)
+        {
+            int count = state;
+
+            ThreadPool.QueueUserWorkItem(x =>
+            {
+                count--;
+                Console.WriteLine($"Count = {count}. ThreadId = {Thread.CurrentThread.ManagedThreadId}");
+                
+                if (count <= 0)
+                {
+                    Console.WriteLine("Counter is less then zero.");
+                    return;
+                }
+                ThreadPoolCreate(count);
+            });
+
+            if (count == 10)
+            {
+                sem.WaitOne();
+            }
+
+            else if (count == 1)
+            {
+                sem.Release();
+            }
         }
     }
 }

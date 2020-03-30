@@ -7,6 +7,8 @@
    Demonstrate the work of the each case with console utility.
 */
 using System;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
 
 namespace MultiThreading.Task6.Continuation
 {
@@ -22,9 +24,19 @@ namespace MultiThreading.Task6.Continuation
             Console.WriteLine("Demonstrate the work of the each case with console utility.");
             Console.WriteLine();
 
-            // feel free to add your code
+            var task = Task
+                .Run(() => CreateRandomIntegers())
+                .ContinueWith(x => CreateRandomIntegers())
+                .ContinueWith(x => CreateRandomIntegers(), TaskContinuationOptions.OnlyOnFaulted)
+                .ContinueWith(x => CreateRandomIntegers(), TaskContinuationOptions.OnlyOnFaulted | TaskContinuationOptions.ExecuteSynchronously).ContinueWith(x => CreateRandomIntegers(), TaskContinuationOptions.RunContinuationsAsynchronously);
+  
+            task.Start();
 
             Console.ReadLine();
+        }
+        private static void CreateRandomIntegers()
+        {
+            Console.WriteLine("Do something...");
         }
     }
 }

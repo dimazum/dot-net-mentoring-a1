@@ -23,8 +23,8 @@ namespace MultiThreading.Task1._100Tasks
             Console.WriteLine();
             
             HundredTasks();
-
-            Console.ReadLine();
+            Task.WaitAll(tasks);
+            //Console.ReadLine();
         }
 
         static void HundredTasks()
@@ -45,6 +45,7 @@ namespace MultiThreading.Task1._100Tasks
 
             foreach (var task in tasks)
             {
+
                 task.Start();
             }
         }

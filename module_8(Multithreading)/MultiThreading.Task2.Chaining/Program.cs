@@ -6,6 +6,9 @@
  * Fourth Task – calculates the average value. All this tasks should print the values to console.
  */
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MultiThreading.Task2.Chaining
 {
@@ -21,9 +24,65 @@ namespace MultiThreading.Task2.Chaining
             Console.WriteLine("Fourth Task – calculates the average value. All this tasks should print the values to console");
             Console.WriteLine();
 
-            // feel free to add your code
+            var task = Task
+                .Run(() => CreateRandomIntegers(10))
+                .ContinueWith(x => MultiplyArray(x.Result))
+                .ContinueWith(x => SortArray(x.Result))
+                .ContinueWith(x => GetAverageValue(x.Result))
+                .Result;
+
+            Console.WriteLine($"Average : {task}");
 
             Console.ReadLine();
+        }
+
+        private static int[] CreateRandomIntegers(int size)
+        {
+            int[] arr = new int[size];
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = new Random().Next(1, 10);
+            }
+
+            OutputArray(arr);
+
+            return arr;
+        }
+
+        private static int[] MultiplyArray(int[] arr)
+        {
+            var _arr = new int[10];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                _arr[i] = arr[i] * new Random().Next(1, 10);
+            }
+
+            OutputArray(_arr);
+
+            return _arr;
+        }
+
+        private static int[] SortArray(int[] arr)
+        {
+            Array.Sort(arr);
+            OutputArray(arr);
+            return arr;
+        }
+
+        private static double GetAverageValue(int[] arr)
+        {
+            return  arr.Average();
+        }
+
+        private static void OutputArray<T>(IEnumerable<T> arr)
+        {
+            foreach (var i in arr)
+            {
+                Console.Write($"{i}, ");
+            }
+
+            Console.WriteLine();
         }
     }
 }
