@@ -24,7 +24,7 @@ namespace AsyncAwait.Task1.CancellationTokens
                     }
                     Thread.Sleep(500);
                     sum += i;
-                    Counter?.Invoke(i, sum);
+                    Counter?.Invoke(0, sum);
                 }
 
                 return new Info { sum = sum, count = n };
