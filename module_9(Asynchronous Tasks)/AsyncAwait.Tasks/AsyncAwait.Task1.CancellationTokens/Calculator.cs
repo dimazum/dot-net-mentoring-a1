@@ -12,6 +12,7 @@ namespace AsyncAwait.Task1.CancellationTokens
 
         public Task<Info> Calculate(int n, CancellationToken token)
         {
+            // TaskCanceledException
             return Task<Info>.Run(() =>
             {
                 long sum = 0;
