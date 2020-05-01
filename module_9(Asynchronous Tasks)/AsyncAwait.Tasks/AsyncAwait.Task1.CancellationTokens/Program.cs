@@ -33,8 +33,10 @@ namespace AsyncAwait.Task1.CancellationTokens
             {
                 CancellationTokenSource cancelTokenSource = new CancellationTokenSource();
                 CancellationToken token = cancelTokenSource.Token;
+                var isCanceled1 = token.CanBeCanceled;
 
-
+                var token2 = CancellationToken.None;
+                var isCanceled2 = token2.CanBeCanceled;
                 if (int.TryParse(input, out int n))
                 {
                     CalculateSum(n, token);
