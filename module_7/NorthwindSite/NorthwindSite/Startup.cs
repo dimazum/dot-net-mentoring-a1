@@ -18,7 +18,6 @@ using Northwind.Data;
 using Northwind.Data.Models;
 using NorthwindSite.Controllers;
 using NorthwindSite.Extensions;
-using NorthwindSite.Logger;
 using Nothwind.Services;
 using Nothwind.Services.Interafaces;
 
