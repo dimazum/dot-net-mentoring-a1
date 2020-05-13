@@ -35,7 +35,7 @@ namespace NorthwindSite.Controllers
 
         public IActionResult Index()
         {
-            var error = this.HttpContext.Features.Get<IExceptionHandlerFeature>().Error;
+            // var error = this.HttpContext.Features.Get<IExceptionHandlerFeature>().Error;
 
 
             return View();

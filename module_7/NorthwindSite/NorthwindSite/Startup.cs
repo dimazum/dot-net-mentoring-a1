@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using Autofac.Extras.DynamicProxy;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,14 +16,19 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Northwind.Data;
 using Northwind.Data.Models;
+using NorthwindSite.Controllers;
 using NorthwindSite.Extensions;
+using NorthwindSite.Logger;
 using Nothwind.Services;
 using Nothwind.Services.Interafaces;
+
 
 namespace NorthwindSite
 {
     public class Startup
     {
+        public IContainer ApplicationContainer { get; private set; }
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -32,6 +40,9 @@ namespace NorthwindSite
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services
+                .AddMvc()
+                .AddControllersAsServices();
 
             services.AddDbContext<NorthwindContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("NorthwindContext")));
@@ -40,6 +51,21 @@ namespace NorthwindSite
             services.AddTransient<IProductsService, ProductsService>();
             services.AddTransient<IContextFactory, ContextFactory>();
         }
+
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            //builder.RegisterType<HomeController>()
+            //    .EnableClassInterceptors()
+            //    .InterceptedBy(typeof(Northwind.Infrastructure.Logger));
+
+            builder.RegisterType<ProductsService>()
+                .As<IProductsService>()
+                .EnableInterfaceInterceptors()
+                .InterceptedBy(typeof(Northwind.Infrastructure.Logger));
+
+            builder.Register(c => new Northwind.Infrastructure.Logger());
+        }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory, ILogger<Startup> logger)
