@@ -12,19 +12,22 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Norhwind.Infrastructure;
 using Northwind.Data.Models;
 using NorthwindSite.Models;
+using Nothwind.Services;
 using Nothwind.Services.Interafaces;
 
 namespace NorthwindSite.Controllers
 {
+    [Logger]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ICategoriesService _categoriesService;
         private readonly IProductsService _productsService;
         private readonly IConfiguration _configuration;
-         
+
         public HomeController(ILogger<HomeController> logger, ICategoriesService categoriesService, IProductsService productsService, IConfiguration configuration)
         {
             _logger = logger;
@@ -35,8 +38,7 @@ namespace NorthwindSite.Controllers
 
         public IActionResult Index()
         {
-            var error = this.HttpContext.Features.Get<IExceptionHandlerFeature>().Error;
-
+            //var error = this.HttpContext.Features.Get<IExceptionHandlerFeature>().Error;
 
             return View();
         }

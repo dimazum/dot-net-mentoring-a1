@@ -6,12 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Norhwind.Infrastructure;
 using Northwind.Data;
 using Northwind.Data.Models;
 using Nothwind.Services.Interafaces;
 
 namespace Nothwind.Services
 {
+    [Logger]
     public class ProductsService : IProductsService
     {
         private readonly NorthwindContext _northwindContext;

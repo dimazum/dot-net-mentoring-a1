@@ -12,9 +12,11 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
+    <PackageReference Include="PostSharp" Version="6.6.7" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Norhwind.Infrastructure\Norhwind.Infrastructure.csproj" />
     <ProjectReference Include="..\Northwind.Data\Northwind.Data.csproj" />
     <ProjectReference Include="..\Nothwind.Services\Nothwind.Services.csproj" />
   </ItemGroup>

@@ -281,3 +281,683 @@ Executed ViewResult - view ErrorFriendly executed in 96.1992ms.
 Executed action NorthwindSite.Controllers.HomeController.Error (NorthwindSite) in 874.7234000000001ms
 Executed endpoint 'NorthwindSite.Controllers.HomeController.Error (NorthwindSite)'
 Request finished in 6359.893ms 500 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite
+Request starting HTTP/2.0 GET https://localhost:44368/  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite
+Request starting HTTP/2.0 GET https://localhost:44368/  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 129.5779ms.
+Executed action NorthwindSite.Controllers.HomeController.Index (NorthwindSite) in 259.0215ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Request finished in 313.8283ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44368/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\favicon.ico'
+Request finished in 34.232ms 200 image/x-icon
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite
+Request starting HTTP/2.0 GET https://localhost:44368/  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 96.7234ms.
+Executed action NorthwindSite.Controllers.HomeController.Index (NorthwindSite) in 206.1091ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Request finished in 263.0196ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44368/css/site.css  
+Request starting HTTP/2.0 GET https://localhost:44368/css/products.css  
+Request starting HTTP/2.0 GET https://localhost:44368/lib/bootstrap/dist/css/bootstrap.min.css  
+Sending file. Request path: '/css/site.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\css\site.css'
+Sending file. Request path: '/css/products.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\css\products.css'
+Request finished in 20.7791ms 200 text/css
+Request finished in 20.9698ms 200 text/css
+Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+Request finished in 30.575ms 200 text/css
+Request starting HTTP/2.0 GET https://localhost:44368/  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 8.0418ms.
+Executed action NorthwindSite.Controllers.HomeController.Index (NorthwindSite) in 11.1157ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Request finished in 20.9273ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44368/Home/Categories  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Categories (NorthwindSite)'
+Route matched with {action = "Categories", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Categories() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Entity Framework Core 3.1.2 initialized 'NorthwindContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[CategoryID], [c].[CategoryName], [c].[Description], [c].[Picture]
+FROM [Categories] AS [c]
+Executing ViewResult, running view Categories.
+Executed ViewResult - view Categories executed in 8.0115ms.
+Executed action NorthwindSite.Controllers.HomeController.Categories (NorthwindSite) in 1046.0088ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Categories (NorthwindSite)'
+Request finished in 1085.2052ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite
+Request starting HTTP/2.0 GET https://localhost:44368/  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 110.7385ms.
+Executed action NorthwindSite.Controllers.HomeController.Index (NorthwindSite) in 261.8267ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Request finished in 335.3333ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44368/css/products.css  
+Request starting HTTP/2.0 GET https://localhost:44368/css/site.css  
+Request starting HTTP/2.0 GET https://localhost:44368/lib/bootstrap/dist/css/bootstrap.min.css  
+Sending file. Request path: '/css/products.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\css\products.css'
+Sending file. Request path: '/css/site.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\css\site.css'
+Request finished in 33.1769ms 200 text/css
+Request finished in 33.3871ms 200 text/css
+Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+Request finished in 30.1707ms 200 text/css
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite
+Request starting HTTP/2.0 GET https://localhost:44368/  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 108.6107ms.
+Executed action NorthwindSite.Controllers.HomeController.Index (NorthwindSite) in 240.3835ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Request finished in 301.7541ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44368/css/products.css  
+Request starting HTTP/2.0 GET https://localhost:44368/lib/bootstrap/dist/css/bootstrap.min.css  
+Request starting HTTP/2.0 GET https://localhost:44368/css/site.css  
+Sending file. Request path: '/css/products.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\css\products.css'
+Sending file. Request path: '/css/site.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\css\site.css'
+Request finished in 28.9064ms 200 text/css
+Request finished in 29.7809ms 200 text/css
+Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+Request starting HTTP/2.0 GET https://localhost:44368/favicon.ico  
+Request finished in 41.4987ms 200 text/css
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\favicon.ico'
+Request finished in 9.88ms 200 image/x-icon
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite
+Request starting HTTP/2.0 GET https://localhost:44368/  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 96.8439ms.
+Executed action NorthwindSite.Controllers.HomeController.Index (NorthwindSite) in 216.3578ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Request finished in 261.2276ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44368/css/site.css  
+Request starting HTTP/2.0 GET https://localhost:44368/lib/bootstrap/dist/css/bootstrap.min.css  
+Request starting HTTP/2.0 GET https://localhost:44368/css/products.css  
+Sending file. Request path: '/css/site.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\css\site.css'
+Sending file. Request path: '/css/products.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\css\products.css'
+Request finished in 26.4726ms 200 text/css
+Request finished in 28.2478ms 200 text/css
+Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+Request starting HTTP/2.0 GET https://localhost:44368/favicon.ico  
+Request finished in 41.9316ms 200 text/css
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\favicon.ico'
+Request finished in 14.2702ms 200 image/x-icon
+Request starting HTTP/2.0 GET https://localhost:44368/Home/Categories  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Categories (NorthwindSite)'
+Route matched with {action = "Categories", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Categories() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Entity Framework Core 3.1.2 initialized 'NorthwindContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[CategoryID], [c].[CategoryName], [c].[Description], [c].[Picture]
+FROM [Categories] AS [c]
+Executing ViewResult, running view Categories.
+Executed ViewResult - view Categories executed in 9.1842ms.
+Executed action NorthwindSite.Controllers.HomeController.Categories (NorthwindSite) in 978.7185ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Categories (NorthwindSite)'
+Request finished in 997.5494ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44368/  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 4.6696ms.
+Executed action NorthwindSite.Controllers.HomeController.Index (NorthwindSite) in 9.2244ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Request finished in 22.8345ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44368/Home/Products  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Products (NorthwindSite)'
+Route matched with {action = "Products", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Products(Int32) on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Read configuration 10
+Entity Framework Core 3.1.2 initialized 'NorthwindContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[CategoryID], [c].[CategoryName], [c].[Description], [c].[Picture]
+FROM [Categories] AS [c]
+Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[SupplierID], [s].[Address], [s].[City], [s].[CompanyName], [s].[ContactName], [s].[ContactTitle], [s].[Country], [s].[Fax], [s].[HomePage], [s].[Phone], [s].[PostalCode], [s].[Region]
+FROM [Suppliers] AS [s]
+Executed DbCommand (36ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [t].[ProductID], [t].[CategoryID], [t].[Discontinued], [t].[ProductName], [t].[QuantityPerUnit], [t].[ReorderLevel], [t].[SupplierID], [t].[UnitPrice], [t].[UnitsInStock], [t].[UnitsOnOrder], [c].[CategoryID], [c].[CategoryName], [c].[Description], [c].[Picture], [s].[SupplierID], [s].[Address], [s].[City], [s].[CompanyName], [s].[ContactName], [s].[ContactTitle], [s].[Country], [s].[Fax], [s].[HomePage], [s].[Phone], [s].[PostalCode], [s].[Region]
+FROM (
+    SELECT [p].[ProductID], [p].[CategoryID], [p].[Discontinued], [p].[ProductName], [p].[QuantityPerUnit], [p].[ReorderLevel], [p].[SupplierID], [p].[UnitPrice], [p].[UnitsInStock], [p].[UnitsOnOrder]
+    FROM [Products] AS [p]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN [Categories] AS [c] ON [t].[CategoryID] = [c].[CategoryID]
+LEFT JOIN [Suppliers] AS [s] ON [t].[SupplierID] = [s].[SupplierID]
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+Executing ViewResult, running view Products.
+Executed ViewResult - view Products executed in 79.239ms.
+Executed action NorthwindSite.Controllers.HomeController.Products (NorthwindSite) in 331.7101ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Products (NorthwindSite)'
+Request finished in 357.8786ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44368/lib/jquery-validation/dist/jquery.validate.min.js  
+Request starting HTTP/2.0 GET https://localhost:44368/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js  
+Sending file. Request path: '/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js'
+Sending file. Request path: '/lib/jquery-validation/dist/jquery.validate.min.js'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js'
+Request finished in 9.7838ms 200 application/javascript
+Request finished in 11.636ms 200 application/javascript
+Request starting HTTP/2.0 GET https://localhost:44368/  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 7.6761ms.
+Executed action NorthwindSite.Controllers.HomeController.Index (NorthwindSite) in 13.1947ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Request finished in 30.7798ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite
+Request starting HTTP/2.0 GET https://localhost:44368/  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 128.2866ms.
+Executed action NorthwindSite.Controllers.HomeController.Index (NorthwindSite) in 258.6027ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Request finished in 323.8547ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44368/lib/bootstrap/dist/css/bootstrap.min.css  
+Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+Request finished in 34.5809ms 200 text/css
+Request starting HTTP/2.0 GET https://localhost:44368/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\favicon.ico'
+Request finished in 7.8168ms 200 image/x-icon
+Request starting HTTP/2.0 GET https://localhost:44368/Home/Products  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Products (NorthwindSite)'
+Route matched with {action = "Products", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Products(Int32) on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Read configuration 10
+Entity Framework Core 3.1.2 initialized 'NorthwindContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[CategoryID], [c].[CategoryName], [c].[Description], [c].[Picture]
+FROM [Categories] AS [c]
+Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[SupplierID], [s].[Address], [s].[City], [s].[CompanyName], [s].[ContactName], [s].[ContactTitle], [s].[Country], [s].[Fax], [s].[HomePage], [s].[Phone], [s].[PostalCode], [s].[Region]
+FROM [Suppliers] AS [s]
+Executed DbCommand (27ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [t].[ProductID], [t].[CategoryID], [t].[Discontinued], [t].[ProductName], [t].[QuantityPerUnit], [t].[ReorderLevel], [t].[SupplierID], [t].[UnitPrice], [t].[UnitsInStock], [t].[UnitsOnOrder], [c].[CategoryID], [c].[CategoryName], [c].[Description], [c].[Picture], [s].[SupplierID], [s].[Address], [s].[City], [s].[CompanyName], [s].[ContactName], [s].[ContactTitle], [s].[Country], [s].[Fax], [s].[HomePage], [s].[Phone], [s].[PostalCode], [s].[Region]
+FROM (
+    SELECT [p].[ProductID], [p].[CategoryID], [p].[Discontinued], [p].[ProductName], [p].[QuantityPerUnit], [p].[ReorderLevel], [p].[SupplierID], [p].[UnitPrice], [p].[UnitsInStock], [p].[UnitsOnOrder]
+    FROM [Products] AS [p]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN [Categories] AS [c] ON [t].[CategoryID] = [c].[CategoryID]
+LEFT JOIN [Suppliers] AS [s] ON [t].[SupplierID] = [s].[SupplierID]
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+Executing ViewResult, running view Products.
+Executed ViewResult - view Products executed in 66.923ms.
+Executed action NorthwindSite.Controllers.HomeController.Products (NorthwindSite) in 2058.1079ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Products (NorthwindSite)'
+Request finished in 2087.1217ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44368/Home/Categories  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Categories (NorthwindSite)'
+Route matched with {action = "Categories", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Categories() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Entity Framework Core 3.1.2 initialized 'NorthwindContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[CategoryID], [c].[CategoryName], [c].[Description], [c].[Picture]
+FROM [Categories] AS [c]
+Executing ViewResult, running view Categories.
+Executed ViewResult - view Categories executed in 9.0004ms.
+Executed action NorthwindSite.Controllers.HomeController.Categories (NorthwindSite) in 84.2425ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Categories (NorthwindSite)'
+Request finished in 113.9537ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite
+Request starting HTTP/2.0 GET https://localhost:44368/  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 117.7767ms.
+Executed action NorthwindSite.Controllers.HomeController.Index (NorthwindSite) in 280.9441ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Request finished in 331.1066ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44368/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\favicon.ico'
+Request finished in 28.4912ms 200 image/x-icon
+Request starting HTTP/2.0 GET https://localhost:44368/Home/Products  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Products (NorthwindSite)'
+Route matched with {action = "Products", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Products(Int32) on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Read configuration 10
+Entity Framework Core 3.1.2 initialized 'NorthwindContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (32ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[CategoryID], [c].[CategoryName], [c].[Description], [c].[Picture]
+FROM [Categories] AS [c]
+Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[SupplierID], [s].[Address], [s].[City], [s].[CompanyName], [s].[ContactName], [s].[ContactTitle], [s].[Country], [s].[Fax], [s].[HomePage], [s].[Phone], [s].[PostalCode], [s].[Region]
+FROM [Suppliers] AS [s]
+Executed DbCommand (34ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [t].[ProductID], [t].[CategoryID], [t].[Discontinued], [t].[ProductName], [t].[QuantityPerUnit], [t].[ReorderLevel], [t].[SupplierID], [t].[UnitPrice], [t].[UnitsInStock], [t].[UnitsOnOrder], [c].[CategoryID], [c].[CategoryName], [c].[Description], [c].[Picture], [s].[SupplierID], [s].[Address], [s].[City], [s].[CompanyName], [s].[ContactName], [s].[ContactTitle], [s].[Country], [s].[Fax], [s].[HomePage], [s].[Phone], [s].[PostalCode], [s].[Region]
+FROM (
+    SELECT [p].[ProductID], [p].[CategoryID], [p].[Discontinued], [p].[ProductName], [p].[QuantityPerUnit], [p].[ReorderLevel], [p].[SupplierID], [p].[UnitPrice], [p].[UnitsInStock], [p].[UnitsOnOrder]
+    FROM [Products] AS [p]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN [Categories] AS [c] ON [t].[CategoryID] = [c].[CategoryID]
+LEFT JOIN [Suppliers] AS [s] ON [t].[SupplierID] = [s].[SupplierID]
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+Executing ViewResult, running view Products.
+Executed ViewResult - view Products executed in 57.9615ms.
+Executed action NorthwindSite.Controllers.HomeController.Products (NorthwindSite) in 1312.2672ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Products (NorthwindSite)'
+Request finished in 1336.4411ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44368/Home/Categories  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Categories (NorthwindSite)'
+Route matched with {action = "Categories", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Categories() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Entity Framework Core 3.1.2 initialized 'NorthwindContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[CategoryID], [c].[CategoryName], [c].[Description], [c].[Picture]
+FROM [Categories] AS [c]
+Executing ViewResult, running view Categories.
+Executed ViewResult - view Categories executed in 7.3001ms.
+Executed action NorthwindSite.Controllers.HomeController.Categories (NorthwindSite) in 44.3104ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Categories (NorthwindSite)'
+Request finished in 56.9642ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite
+Request starting HTTP/2.0 GET https://localhost:44368/  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 137.177ms.
+Executed action NorthwindSite.Controllers.HomeController.Index (NorthwindSite) in 302.2025ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Request finished in 376.7672ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44368/lib/bootstrap/dist/css/bootstrap.min.css  
+Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+Request finished in 42.3143ms 200 text/css
+Request starting HTTP/2.0 GET https://localhost:44368/Home/Products  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Products (NorthwindSite)'
+Route matched with {action = "Products", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Products(Int32) on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Read configuration 10
+Entity Framework Core 3.1.2 initialized 'NorthwindContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[CategoryID], [c].[CategoryName], [c].[Description], [c].[Picture]
+FROM [Categories] AS [c]
+Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[SupplierID], [s].[Address], [s].[City], [s].[CompanyName], [s].[ContactName], [s].[ContactTitle], [s].[Country], [s].[Fax], [s].[HomePage], [s].[Phone], [s].[PostalCode], [s].[Region]
+FROM [Suppliers] AS [s]
+Executed DbCommand (55ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [t].[ProductID], [t].[CategoryID], [t].[Discontinued], [t].[ProductName], [t].[QuantityPerUnit], [t].[ReorderLevel], [t].[SupplierID], [t].[UnitPrice], [t].[UnitsInStock], [t].[UnitsOnOrder], [c].[CategoryID], [c].[CategoryName], [c].[Description], [c].[Picture], [s].[SupplierID], [s].[Address], [s].[City], [s].[CompanyName], [s].[ContactName], [s].[ContactTitle], [s].[Country], [s].[Fax], [s].[HomePage], [s].[Phone], [s].[PostalCode], [s].[Region]
+FROM (
+    SELECT [p].[ProductID], [p].[CategoryID], [p].[Discontinued], [p].[ProductName], [p].[QuantityPerUnit], [p].[ReorderLevel], [p].[SupplierID], [p].[UnitPrice], [p].[UnitsInStock], [p].[UnitsOnOrder]
+    FROM [Products] AS [p]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN [Categories] AS [c] ON [t].[CategoryID] = [c].[CategoryID]
+LEFT JOIN [Suppliers] AS [s] ON [t].[SupplierID] = [s].[SupplierID]
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+Executing ViewResult, running view Products.
+Executed ViewResult - view Products executed in 96.6658ms.
+Executed action NorthwindSite.Controllers.HomeController.Products (NorthwindSite) in 1759.6322ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Products (NorthwindSite)'
+Request finished in 1792.0782ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite
+Request starting HTTP/2.0 GET https://localhost:44368/  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 100.4681ms.
+Executed action NorthwindSite.Controllers.HomeController.Index (NorthwindSite) in 216.7885ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Request finished in 267.8067ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44368/css/products.css  
+Request starting HTTP/2.0 GET https://localhost:44368/lib/bootstrap/dist/css/bootstrap.min.css  
+Request starting HTTP/2.0 GET https://localhost:44368/css/site.css  
+Sending file. Request path: '/css/site.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\css\site.css'
+Sending file. Request path: '/css/products.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\css\products.css'
+Request finished in 26.7579ms 200 text/css
+Request finished in 34.7178ms 200 text/css
+Request starting HTTP/2.0 GET https://localhost:44368/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\favicon.ico'
+Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+Request finished in 6.1044ms 200 image/x-icon
+Request finished in 43.1285ms 200 text/css
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite
+Request starting HTTP/2.0 GET https://localhost:44368/  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 105.7642ms.
+Executed action NorthwindSite.Controllers.HomeController.Index (NorthwindSite) in 238.5461ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Request finished in 286.271ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44368/lib/bootstrap/dist/css/bootstrap.min.css  
+Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+Request finished in 29.1162ms 200 text/css
+Request starting HTTP/2.0 GET https://localhost:44368/Home/Products  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Products (NorthwindSite)'
+Route matched with {action = "Products", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Products(Int32) on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Read configuration 10
+Entity Framework Core 3.1.2 initialized 'NorthwindContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[CategoryID], [c].[CategoryName], [c].[Description], [c].[Picture]
+FROM [Categories] AS [c]
+Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[SupplierID], [s].[Address], [s].[City], [s].[CompanyName], [s].[ContactName], [s].[ContactTitle], [s].[Country], [s].[Fax], [s].[HomePage], [s].[Phone], [s].[PostalCode], [s].[Region]
+FROM [Suppliers] AS [s]
+Executed DbCommand (29ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [t].[ProductID], [t].[CategoryID], [t].[Discontinued], [t].[ProductName], [t].[QuantityPerUnit], [t].[ReorderLevel], [t].[SupplierID], [t].[UnitPrice], [t].[UnitsInStock], [t].[UnitsOnOrder], [c].[CategoryID], [c].[CategoryName], [c].[Description], [c].[Picture], [s].[SupplierID], [s].[Address], [s].[City], [s].[CompanyName], [s].[ContactName], [s].[ContactTitle], [s].[Country], [s].[Fax], [s].[HomePage], [s].[Phone], [s].[PostalCode], [s].[Region]
+FROM (
+    SELECT [p].[ProductID], [p].[CategoryID], [p].[Discontinued], [p].[ProductName], [p].[QuantityPerUnit], [p].[ReorderLevel], [p].[SupplierID], [p].[UnitPrice], [p].[UnitsInStock], [p].[UnitsOnOrder]
+    FROM [Products] AS [p]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN [Categories] AS [c] ON [t].[CategoryID] = [c].[CategoryID]
+LEFT JOIN [Suppliers] AS [s] ON [t].[SupplierID] = [s].[SupplierID]
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+Executing ViewResult, running view Products.
+Executed ViewResult - view Products executed in 59.8677ms.
+Executed action NorthwindSite.Controllers.HomeController.Products (NorthwindSite) in 1223.3866ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Products (NorthwindSite)'
+Request finished in 1247.9974ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44368/Home/Categories  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Categories (NorthwindSite)'
+Route matched with {action = "Categories", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Categories() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Entity Framework Core 3.1.2 initialized 'NorthwindContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[CategoryID], [c].[CategoryName], [c].[Description], [c].[Picture]
+FROM [Categories] AS [c]
+Executing ViewResult, running view Categories.
+Executed ViewResult - view Categories executed in 6.1695ms.
+Executed action NorthwindSite.Controllers.HomeController.Categories (NorthwindSite) in 40.5823ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Categories (NorthwindSite)'
+Request finished in 54.4454ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44368/  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 3.1007ms.
+Executed action NorthwindSite.Controllers.HomeController.Index (NorthwindSite) in 5.2815ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Request finished in 15.5523ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44368/Home/Products  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Products (NorthwindSite)'
+Route matched with {action = "Products", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Products(Int32) on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Read configuration 10
+Entity Framework Core 3.1.2 initialized 'NorthwindContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[CategoryID], [c].[CategoryName], [c].[Description], [c].[Picture]
+FROM [Categories] AS [c]
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[SupplierID], [s].[Address], [s].[City], [s].[CompanyName], [s].[ContactName], [s].[ContactTitle], [s].[Country], [s].[Fax], [s].[HomePage], [s].[Phone], [s].[PostalCode], [s].[Region]
+FROM [Suppliers] AS [s]
+Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [t].[ProductID], [t].[CategoryID], [t].[Discontinued], [t].[ProductName], [t].[QuantityPerUnit], [t].[ReorderLevel], [t].[SupplierID], [t].[UnitPrice], [t].[UnitsInStock], [t].[UnitsOnOrder], [c].[CategoryID], [c].[CategoryName], [c].[Description], [c].[Picture], [s].[SupplierID], [s].[Address], [s].[City], [s].[CompanyName], [s].[ContactName], [s].[ContactTitle], [s].[Country], [s].[Fax], [s].[HomePage], [s].[Phone], [s].[PostalCode], [s].[Region]
+FROM (
+    SELECT [p].[ProductID], [p].[CategoryID], [p].[Discontinued], [p].[ProductName], [p].[QuantityPerUnit], [p].[ReorderLevel], [p].[SupplierID], [p].[UnitPrice], [p].[UnitsInStock], [p].[UnitsOnOrder]
+    FROM [Products] AS [p]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN [Categories] AS [c] ON [t].[CategoryID] = [c].[CategoryID]
+LEFT JOIN [Suppliers] AS [s] ON [t].[SupplierID] = [s].[SupplierID]
+Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+Executing ViewResult, running view Products.
+Executed ViewResult - view Products executed in 7.0732ms.
+Executed action NorthwindSite.Controllers.HomeController.Products (NorthwindSite) in 41.5404ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Products (NorthwindSite)'
+Request finished in 51.8189ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite
+Request starting HTTP/2.0 GET https://localhost:44368/  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 104.1734ms.
+Executed action NorthwindSite.Controllers.HomeController.Index (NorthwindSite) in 223.0043ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Request finished in 273.1995ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44368/lib/bootstrap/dist/css/bootstrap.min.css  
+Request starting HTTP/2.0 GET https://localhost:44368/css/products.css  
+Request starting HTTP/2.0 GET https://localhost:44368/css/site.css  
+Sending file. Request path: '/css/products.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\css\products.css'
+Sending file. Request path: '/css/site.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\css\site.css'
+Request finished in 25.7985ms 200 text/css
+Request finished in 26.5916ms 200 text/css
+Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+Request finished in 38.9459ms 200 text/css
+Request starting HTTP/2.0 GET https://localhost:44368/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\favicon.ico'
+Request finished in 10.2801ms 200 image/x-icon
+Request starting HTTP/2.0 GET https://localhost:44368/Home/Products  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Products (NorthwindSite)'
+Route matched with {action = "Products", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Products(Int32) on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Read configuration 10
+Entity Framework Core 3.1.2 initialized 'NorthwindContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[CategoryID], [c].[CategoryName], [c].[Description], [c].[Picture]
+FROM [Categories] AS [c]
+Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[SupplierID], [s].[Address], [s].[City], [s].[CompanyName], [s].[ContactName], [s].[ContactTitle], [s].[Country], [s].[Fax], [s].[HomePage], [s].[Phone], [s].[PostalCode], [s].[Region]
+FROM [Suppliers] AS [s]
+Executed DbCommand (29ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [t].[ProductID], [t].[CategoryID], [t].[Discontinued], [t].[ProductName], [t].[QuantityPerUnit], [t].[ReorderLevel], [t].[SupplierID], [t].[UnitPrice], [t].[UnitsInStock], [t].[UnitsOnOrder], [c].[CategoryID], [c].[CategoryName], [c].[Description], [c].[Picture], [s].[SupplierID], [s].[Address], [s].[City], [s].[CompanyName], [s].[ContactName], [s].[ContactTitle], [s].[Country], [s].[Fax], [s].[HomePage], [s].[Phone], [s].[PostalCode], [s].[Region]
+FROM (
+    SELECT [p].[ProductID], [p].[CategoryID], [p].[Discontinued], [p].[ProductName], [p].[QuantityPerUnit], [p].[ReorderLevel], [p].[SupplierID], [p].[UnitPrice], [p].[UnitsInStock], [p].[UnitsOnOrder]
+    FROM [Products] AS [p]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN [Categories] AS [c] ON [t].[CategoryID] = [c].[CategoryID]
+LEFT JOIN [Suppliers] AS [s] ON [t].[SupplierID] = [s].[SupplierID]
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+Executing ViewResult, running view Products.
+Executed ViewResult - view Products executed in 59.4252ms.
+Executed action NorthwindSite.Controllers.HomeController.Products (NorthwindSite) in 1208.3197ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Products (NorthwindSite)'
+Request finished in 1232.632ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite
+Request starting HTTP/2.0 GET https://localhost:44368/  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 90.4246ms.
+Executed action NorthwindSite.Controllers.HomeController.Index (NorthwindSite) in 209.8166ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Request finished in 258.5862ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44368/lib/bootstrap/dist/css/bootstrap.min.css  
+Request starting HTTP/2.0 GET https://localhost:44368/css/site.css  
+Request starting HTTP/2.0 GET https://localhost:44368/css/products.css  
+Sending file. Request path: '/css/site.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\css\site.css'
+Sending file. Request path: '/css/products.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\css\products.css'
+Request finished in 33.8076ms 200 text/css
+Request finished in 26.6264ms 200 text/css
+Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+Request finished in 42.581ms 200 text/css
+Request starting HTTP/2.0 GET https://localhost:44368/favicon.ico  
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\favicon.ico'
+Request finished in 5.1724ms 200 image/x-icon
+Request starting HTTP/2.0 GET https://localhost:44368/Home/Products  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Products (NorthwindSite)'
+Route matched with {action = "Products", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Products(Int32) on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Read configuration 10
+Entity Framework Core 3.1.2 initialized 'NorthwindContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[CategoryID], [c].[CategoryName], [c].[Description], [c].[Picture]
+FROM [Categories] AS [c]
+Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[SupplierID], [s].[Address], [s].[City], [s].[CompanyName], [s].[ContactName], [s].[ContactTitle], [s].[Country], [s].[Fax], [s].[HomePage], [s].[Phone], [s].[PostalCode], [s].[Region]
+FROM [Suppliers] AS [s]
+Executed DbCommand (24ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [t].[ProductID], [t].[CategoryID], [t].[Discontinued], [t].[ProductName], [t].[QuantityPerUnit], [t].[ReorderLevel], [t].[SupplierID], [t].[UnitPrice], [t].[UnitsInStock], [t].[UnitsOnOrder], [c].[CategoryID], [c].[CategoryName], [c].[Description], [c].[Picture], [s].[SupplierID], [s].[Address], [s].[City], [s].[CompanyName], [s].[ContactName], [s].[ContactTitle], [s].[Country], [s].[Fax], [s].[HomePage], [s].[Phone], [s].[PostalCode], [s].[Region]
+FROM (
+    SELECT [p].[ProductID], [p].[CategoryID], [p].[Discontinued], [p].[ProductName], [p].[QuantityPerUnit], [p].[ReorderLevel], [p].[SupplierID], [p].[UnitPrice], [p].[UnitsInStock], [p].[UnitsOnOrder]
+    FROM [Products] AS [p]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN [Categories] AS [c] ON [t].[CategoryID] = [c].[CategoryID]
+LEFT JOIN [Suppliers] AS [s] ON [t].[SupplierID] = [s].[SupplierID]
+Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+Executing ViewResult, running view Products.
+Executed ViewResult - view Products executed in 66.1825ms.
+Executed action NorthwindSite.Controllers.HomeController.Products (NorthwindSite) in 1180.8557ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Products (NorthwindSite)'
+Request finished in 1204.1095ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44368/Home/Categories  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Categories (NorthwindSite)'
+Route matched with {action = "Categories", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Categories() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Entity Framework Core 3.1.2 initialized 'NorthwindContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[CategoryID], [c].[CategoryName], [c].[Description], [c].[Picture]
+FROM [Categories] AS [c]
+Executing ViewResult, running view Categories.
+Executed ViewResult - view Categories executed in 6.486ms.
+Executed action NorthwindSite.Controllers.HomeController.Categories (NorthwindSite) in 41.2463ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Categories (NorthwindSite)'
+Request finished in 53.8303ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite
+Request starting HTTP/2.0 GET https://localhost:44368/  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 108.431ms.
+Executed action NorthwindSite.Controllers.HomeController.Index (NorthwindSite) in 251.5515ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Request finished in 307.4439ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44368/lib/bootstrap/dist/css/bootstrap.min.css  
+Request starting HTTP/2.0 GET https://localhost:44368/css/site.css  
+Request starting HTTP/2.0 GET https://localhost:44368/css/products.css  
+Request starting HTTP/2.0 GET https://localhost:44368/favicon.ico  
+Sending file. Request path: '/css/products.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\css\products.css'
+Sending file. Request path: '/css/site.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\css\site.css'
+Request finished in 45.063ms 200 text/css
+Request finished in 48.1911ms 200 text/css
+Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\favicon.ico'
+Request finished in 78.0853ms 200 text/css
+Request finished in 38.0218ms 200 image/x-icon
+Request starting HTTP/2.0 GET https://localhost:44368/Home/Products  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Products (NorthwindSite)'
+Route matched with {action = "Products", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Products(Int32) on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Read configuration 10
+Entity Framework Core 3.1.2 initialized 'NorthwindContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [c].[CategoryID], [c].[CategoryName], [c].[Description], [c].[Picture]
+FROM [Categories] AS [c]
+Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [s].[SupplierID], [s].[Address], [s].[City], [s].[CompanyName], [s].[ContactName], [s].[ContactTitle], [s].[Country], [s].[Fax], [s].[HomePage], [s].[Phone], [s].[PostalCode], [s].[Region]
+FROM [Suppliers] AS [s]
+Executed DbCommand (29ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [t].[ProductID], [t].[CategoryID], [t].[Discontinued], [t].[ProductName], [t].[QuantityPerUnit], [t].[ReorderLevel], [t].[SupplierID], [t].[UnitPrice], [t].[UnitsInStock], [t].[UnitsOnOrder], [c].[CategoryID], [c].[CategoryName], [c].[Description], [c].[Picture], [s].[SupplierID], [s].[Address], [s].[City], [s].[CompanyName], [s].[ContactName], [s].[ContactTitle], [s].[Country], [s].[Fax], [s].[HomePage], [s].[Phone], [s].[PostalCode], [s].[Region]
+FROM (
+    SELECT [p].[ProductID], [p].[CategoryID], [p].[Discontinued], [p].[ProductName], [p].[QuantityPerUnit], [p].[ReorderLevel], [p].[SupplierID], [p].[UnitPrice], [p].[UnitsInStock], [p].[UnitsOnOrder]
+    FROM [Products] AS [p]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN [Categories] AS [c] ON [t].[CategoryID] = [c].[CategoryID]
+LEFT JOIN [Suppliers] AS [s] ON [t].[SupplierID] = [s].[SupplierID]
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Products] AS [p]
+Executing ViewResult, running view Products.
+Executed ViewResult - view Products executed in 62.7059ms.
+Executed action NorthwindSite.Controllers.HomeController.Products (NorthwindSite) in 1248.2023ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Products (NorthwindSite)'
+Request finished in 1275.9295ms 200 text/html; charset=utf-8
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite
+Request starting HTTP/2.0 GET https://localhost:44368/  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 104.2719ms.
+Executed action NorthwindSite.Controllers.HomeController.Index (NorthwindSite) in 2546.8482ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Request finished in 2597.6727ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44368/css/products.css  
+Request starting HTTP/2.0 GET https://localhost:44368/lib/bootstrap/dist/css/bootstrap.min.css  
+Request starting HTTP/2.0 GET https://localhost:44368/css/site.css  
+Sending file. Request path: '/css/site.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\css\site.css'
+Sending file. Request path: '/css/products.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\css\products.css'
+Request finished in 29.234ms 200 text/css
+Request finished in 31.8737ms 200 text/css
+Request starting HTTP/2.0 GET https://localhost:44368/favicon.ico  
+Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\favicon.ico'
+Request finished in 43.7049ms 200 text/css
+Request finished in 9.4812ms 200 image/x-icon
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite
+Request starting HTTP/2.0 GET https://localhost:44368/  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 107.76ms.
+Executed action NorthwindSite.Controllers.HomeController.Index (NorthwindSite) in 3892.1995ms
+Executed endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Request finished in 3943.8166ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44368/lib/bootstrap/dist/css/bootstrap.min.css  
+Request starting HTTP/2.0 GET https://localhost:44368/css/site.css  
+Request starting HTTP/2.0 GET https://localhost:44368/css/products.css  
+Sending file. Request path: '/css/products.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\css\products.css'
+Sending file. Request path: '/css/site.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\css\site.css'
+Request finished in 32.6951ms 200 text/css
+Request finished in 33.892ms 200 text/css
+Request starting HTTP/2.0 GET https://localhost:44368/favicon.ico  
+Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite\wwwroot\favicon.ico'
+Request finished in 49.9768ms 200 text/css
+Request finished in 12.4053ms 200 image/x-icon
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\projects\dot-net-mentoring-a1\module_7\NorthwindSite\NorthwindSite
+Request starting HTTP/2.0 GET https://localhost:44368/  
+Executing endpoint 'NorthwindSite.Controllers.HomeController.Index (NorthwindSite)'
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller NorthwindSite.Controllers.HomeController (NorthwindSite).
