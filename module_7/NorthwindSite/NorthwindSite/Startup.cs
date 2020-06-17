@@ -37,7 +37,7 @@ namespace NorthwindSite
                 options.UseSqlServer(Configuration.GetConnectionString("NorthwindContext")));
 
             services.AddTransient<ICategoriesService, CategoriesService>();
-            services.AddTransient<IProductsService, ProductsService>();
+            services.AddScoped<IProductsService, ProductsService>();
             services.AddTransient<IContextFactory, ContextFactory>();
         }
 
