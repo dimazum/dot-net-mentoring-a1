@@ -822,6 +822,8 @@ namespace EFModule.Data.Models.DB
                     .HasConstraintName("FK_Territories_Region");
             });
 
+            modelBuilder.Entity<Region>(entity => { entity.ToTable("Regions"); });
+
             OnModelCreatingPartial(modelBuilder);
         }
 
