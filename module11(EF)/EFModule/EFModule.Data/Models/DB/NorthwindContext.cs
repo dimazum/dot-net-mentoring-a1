@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace EFModule.Data.Models.DB
@@ -44,6 +45,7 @@ namespace EFModule.Data.Models.DB
         public virtual DbSet<SummaryOfSalesByYear> SummaryOfSalesByYear { get; set; }
         public virtual DbSet<Suppliers> Suppliers { get; set; }
         public virtual DbSet<Territories> Territories { get; set; }
+        public virtual DbSet<CreditCardInfo> CreditCardInfos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
