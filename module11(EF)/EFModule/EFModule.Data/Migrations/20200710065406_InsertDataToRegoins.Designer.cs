@@ -4,14 +4,16 @@ using EFModule.Data.Models.DB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EFModule.Data.Migrations
 {
     [DbContext(typeof(NorthwindContext))]
-    partial class NorthwindContextModelSnapshot : ModelSnapshot
+    [Migration("20200710065406_InsertDataToRegoins")]
+    partial class InsertDataToRegoins
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -483,19 +485,19 @@ namespace EFModule.Data.Migrations
                         new
                         {
                             RegionId = 0,
-                            DateOfEstablishment = new DateTime(2020, 7, 10, 7, 26, 42, 910, DateTimeKind.Utc),
+                            DateOfEstablishment = new DateTime(2020, 7, 10, 6, 54, 6, 19, DateTimeKind.Utc).AddTicks(1364),
                             RegionDescription = "region1"
                         },
                         new
                         {
                             RegionId = 1,
-                            DateOfEstablishment = new DateTime(2020, 7, 10, 7, 26, 42, 910, DateTimeKind.Utc),
+                            DateOfEstablishment = new DateTime(2020, 7, 10, 6, 54, 6, 20, DateTimeKind.Utc).AddTicks(1702),
                             RegionDescription = "region2"
                         },
                         new
                         {
                             RegionId = 2,
-                            DateOfEstablishment = new DateTime(2020, 7, 10, 7, 26, 42, 910, DateTimeKind.Utc),
+                            DateOfEstablishment = new DateTime(2020, 7, 10, 6, 54, 6, 20, DateTimeKind.Utc).AddTicks(1726),
                             RegionDescription = "region3"
                         });
                 });
@@ -608,14 +610,6 @@ namespace EFModule.Data.Migrations
                     b.HasIndex("RegionId");
 
                     b.ToTable("Territories");
-
-                    b.HasData(
-                        new
-                        {
-                            TerritoryId = "0",
-                            RegionId = 0,
-                            TerritoryDescription = "Terr description"
-                        });
                 });
 
             modelBuilder.Entity("EFModule.Data.Models.DB.CreditCardInfo", b =>

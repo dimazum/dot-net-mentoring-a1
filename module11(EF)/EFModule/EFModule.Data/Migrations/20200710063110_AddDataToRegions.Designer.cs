@@ -4,14 +4,16 @@ using EFModule.Data.Models.DB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EFModule.Data.Migrations
 {
     [DbContext(typeof(NorthwindContext))]
-    partial class NorthwindContextModelSnapshot : ModelSnapshot
+    [Migration("20200710063110_AddDataToRegions")]
+    partial class AddDataToRegions
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -483,20 +485,8 @@ namespace EFModule.Data.Migrations
                         new
                         {
                             RegionId = 0,
-                            DateOfEstablishment = new DateTime(2020, 7, 10, 7, 26, 42, 910, DateTimeKind.Utc),
+                            DateOfEstablishment = new DateTime(2020, 7, 10, 6, 31, 9, 959, DateTimeKind.Utc).AddTicks(1515),
                             RegionDescription = "region1"
-                        },
-                        new
-                        {
-                            RegionId = 1,
-                            DateOfEstablishment = new DateTime(2020, 7, 10, 7, 26, 42, 910, DateTimeKind.Utc),
-                            RegionDescription = "region2"
-                        },
-                        new
-                        {
-                            RegionId = 2,
-                            DateOfEstablishment = new DateTime(2020, 7, 10, 7, 26, 42, 910, DateTimeKind.Utc),
-                            RegionDescription = "region3"
                         });
                 });
 
@@ -608,14 +598,6 @@ namespace EFModule.Data.Migrations
                     b.HasIndex("RegionId");
 
                     b.ToTable("Territories");
-
-                    b.HasData(
-                        new
-                        {
-                            TerritoryId = "0",
-                            RegionId = 0,
-                            TerritoryDescription = "Terr description"
-                        });
                 });
 
             modelBuilder.Entity("EFModule.Data.Models.DB.CreditCardInfo", b =>

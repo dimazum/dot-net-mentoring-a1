@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -52,7 +53,7 @@ namespace EFModule.Data.Models.DB
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=EPBYGROW0409;Database=Northwind2;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=EPBYGROW0409;Database=Northwind3;Trusted_Connection=True;");
             }
         }
 
@@ -823,6 +824,24 @@ namespace EFModule.Data.Models.DB
             });
 
             modelBuilder.Entity<Region>(entity => { entity.ToTable("Regions"); });
+
+           
+
+            modelBuilder.Entity<Region>().HasData(
+                new Region() { RegionDescription = "region1", DateOfEstablishment = new DateTime(2020, 7, 10, 7, 26, 42, 910, DateTimeKind.Utc) });
+
+            modelBuilder.Entity<Region>().HasData(
+                new Region() { RegionId = 1, RegionDescription = "region2", DateOfEstablishment = new DateTime(2020, 7, 10, 7, 26, 42, 910, DateTimeKind.Utc) },
+                new Region() { RegionId = 2, RegionDescription = "region3", DateOfEstablishment = new DateTime(2020, 7, 10, 7, 26, 42, 910, DateTimeKind.Utc) });
+
+            modelBuilder.Entity<Territories>().HasData(
+                new Territories() { TerritoryId = "0", TerritoryDescription = "Terr description", RegionId = 0});
+
+            //modelBuilder.Entity<Region>(entity =>
+            //{
+            //    entity.Property(e => e.RegionId)
+            //        .ValueGeneratedOnAdd();
+            //});
 
             OnModelCreatingPartial(modelBuilder);
         }
