@@ -6,7 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Expressmapper" Version="1.9.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MyExpressions\MyExpressions.csproj" />
+    <ProjectReference Include="..\Task2(Mapper)\Task2(Mapper).csproj" />
   </ItemGroup>
 
 </Project>

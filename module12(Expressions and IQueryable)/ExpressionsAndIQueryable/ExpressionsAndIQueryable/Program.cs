@@ -2,6 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Security.Cryptography.X509Certificates;
+using ExpressMapper;
+//using ExpressMapper;
+//using ExpressMapper.Extensions;
+using Task2_Mapper_;
+using Task2_Mapper_.Models;
 
 namespace ExpressionsAndIQueryable
 {
@@ -21,20 +27,61 @@ namespace ExpressionsAndIQueryable
 
 
 
-            var dictionary = new Dictionary<string, int>
+            //var dictionary = new Dictionary<string, int>
+            //{
+            //    {"x", 10},
+            //    {"y", 20},
+            //    {"z", 30}
+            //};
+
+
+            //Expression<Func<int, int, int, double>> initExpression = (x, y, z) => x * 2 + (y + 1) + (1 + z);
+            //var parameterTransformer = new ParameterToConstantTransformer(dictionary);
+            //var transformed = parameterTransformer.VisitAndConvert(initExpression, "");
+
+            //Console.WriteLine($"Initial expression: {initExpression}\nTransformed expression: {transformed}\nResult = {transformed.Compile().Invoke(0, 0, 0)}");
+
+
+            //Mapper.Register<Foo, Bar>().Member(y => "fefefe", x=>x.Name);
+
+            var foo = new Foo
             {
-                {"x", 10},
-                {"y", 20},
-                {"z", 30}
+                Id = 1,
+                Name = "Dzmitry",
+                Age = 333,
+                Email = "test@gmail.com"
             };
 
+            var mapConfig = new MapperConfiguration()
+                .Register<Foo, Bar>()
+                .Member(x => x.Name, y => "Dima2")
+                .Member(x => x.Id, y => 55);
 
-            Expression<Func<int, int, int, double>> initExpression = (x, y, z) => x * 2 + (y + 1) + (1 + z);
-            var parameterTransformer = new ParameterToConstantTransformer(dictionary);
-            var transformed = parameterTransformer.VisitAndConvert(initExpression, "");
 
-            Console.WriteLine($"Initial expression: {initExpression}\nTransformed expression: {transformed}\nResult = {transformed.Compile().Invoke(0, 0, 0)}");
+            var mappingGenerator = new MappingGenerator();
+            var mapper = mappingGenerator.Generate<Foo, Bar>();
+
+            var result = mapper.Map(foo);
+
 
         }
+
     }
+
+    //public class Foo
+    //{
+    //    public int Id { get; set; }
+    //    public string Name { get; set; }
+    //    public int Age { get; set; }
+    //    public string Email { get; set; }
+
+    //}
+
+    //public class Bar
+    //{
+    //    public int Id { get; set; }
+    //    public string Name { get; set; }
+    //    public int Age { get; set; }
+    //    public string Email { get; set; }
+    //}
 }
