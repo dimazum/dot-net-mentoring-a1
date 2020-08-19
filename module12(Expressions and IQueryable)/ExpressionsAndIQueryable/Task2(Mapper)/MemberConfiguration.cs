@@ -5,10 +5,11 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using Task2_Mapper_.Interfaces;
 
 namespace Task2_Mapper_
 {
-    public class MemberConfiguration<TSource, TDest>
+    public class MemberConfiguration<TSource, TDest> : IMemberConfiguration<TSource, TDest>
     {
         private readonly MapperData _mapperData;
         public MemberConfiguration()
