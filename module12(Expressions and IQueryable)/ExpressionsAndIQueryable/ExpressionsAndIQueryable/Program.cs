@@ -43,7 +43,7 @@ namespace ExpressionsAndIQueryable
 
 
             //Mapper.Register<Foo, Bar>().Member(y => "fefefe", x=>x.Name);
-
+            //--------
             var foo = new Foo
             {
                 Id = 1,
@@ -55,7 +55,10 @@ namespace ExpressionsAndIQueryable
             var mapConfig = new MapperConfiguration()
                 .Register<Foo, Bar>()
                 .Member(x => x.Name, y => "Dima2")
-                .Member(x => x.Id, y => 55);
+                .Member(x => x.Name, y => y.Name)
+                .Member(x => x.Id, y => y.Id2)
+                .Member(x => x.Id, y => y.Id2);
+                //.Member(x => x.Id, y => 43434);
 
 
             var mappingGenerator = new MappingGenerator();
@@ -67,21 +70,4 @@ namespace ExpressionsAndIQueryable
         }
 
     }
-
-    //public class Foo
-    //{
-    //    public int Id { get; set; }
-    //    public string Name { get; set; }
-    //    public int Age { get; set; }
-    //    public string Email { get; set; }
-
-    //}
-
-    //public class Bar
-    //{
-    //    public int Id { get; set; }
-    //    public string Name { get; set; }
-    //    public int Age { get; set; }
-    //    public string Email { get; set; }
-    //}
 }

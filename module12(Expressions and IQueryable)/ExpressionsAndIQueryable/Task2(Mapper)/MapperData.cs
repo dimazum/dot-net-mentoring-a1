@@ -9,17 +9,17 @@ namespace Task2_Mapper_
 {
     public class MapperData
     {
-        public ConcurrentDictionary<(Type, Type), ConcurrentDictionary<Expression, Expression>> ConfigMembers { get; set; }
+        public ConcurrentDictionary<(Type, Type), ConcurrentDictionary<string, Expression>> ConfigMembers { get; set; }
 
         public MapperData()
         {
-            ConfigMembers = new ConcurrentDictionary<(Type, Type), ConcurrentDictionary<Expression, Expression>>();
+            ConfigMembers = new ConcurrentDictionary<(Type, Type), ConcurrentDictionary<string, Expression>>();
         }
 
-        public ConcurrentDictionary<Expression, Expression> GetConfigMembers<TSource, TDest>()
+        public ConcurrentDictionary<string, Expression> GetConfigMembers<TSource, TDest>()
         {
             var key = (typeof(TSource), typeof(TDest));
-            ConcurrentDictionary<Expression, Expression> members;
+            ConcurrentDictionary<string, Expression> members;
             if (ConfigMembers.TryGetValue(key, out members))
             {
                 return members;

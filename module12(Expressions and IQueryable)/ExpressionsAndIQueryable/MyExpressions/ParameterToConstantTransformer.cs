@@ -26,6 +26,7 @@ namespace MyExpressions
 
         protected override Expression VisitLambda<T>(Expression<T> node)
         {
+           
             Expression body = this.Visit(node.Body);
             //var parameters = node.Parameters;
             if (body != node.Body && node.Parameters != null)

@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using Task2_Mapper_.Models;
 
 namespace Task2_Mapper_
 {
@@ -20,14 +17,12 @@ namespace Task2_Mapper_
 
         public Mapper<TSource, TDestination> Generate<TSource, TDestination>()
         {
-            var sourceType = typeof(TSource);
             var destinationType = typeof(TDestination);
-            var constructorInfoForDestinationType = destinationType.GetConstructors().First();
 
-            ParameterExpression sourceParam = Expression.Parameter(typeof(TSource), "sParam");
+            var sourceParam = Expression.Parameter(typeof(TSource), "sParam");
             var ctor = Expression.New(destinationType);
-            var body = Expression.MemberInit(ctor, GetMemberBindings<TSource, TDestination>(sourceParam));
-
+            var memberBindings = GetMemberBindings<TSource, TDestination>(sourceParam);
+            var body = Expression.MemberInit(ctor, memberBindings);
 
             var mapFunction = Expression.Lambda<Func<TSource, TDestination>>(body, sourceParam);
 
@@ -36,56 +31,67 @@ namespace Task2_Mapper_
 
         public IEnumerable<MemberBinding> GetMemberBindings<TSource, TDest>(ParameterExpression sourceParam)
         {
-            //ParameterExpression sourceParam = Expression.Parameter(typeof(TSource), "sParam");
-            //var bindings = typeof(TSource).GetProperties()
-            //   .Select(x => 
-            //   Expression.Bind(typeof(TDest).GetProperty(x.Name), Expression.Property(sourceParam, x)));
-
-            //return bindings;
-
-            var memberConfigs = _mapperData.GetConfigMembers<TSource, TDest>();
-
-            //Func<Student, bool> isTeenAger = memberConfigs.Keys[0].Compile();
-            var ss = memberConfigs.Keys.First();
-            var sss = ((Expression<Func<TSource, string>>)ss);
-            var ssss = ((MemberExpression)sss.Body).Member as PropertyInfo;
-
-            var ss1 = memberConfigs.Values.First();
-            var sss1 = ((Expression<Func<TDest, string>>)ss1);
-
-            if (sss1.Body is MemberExpression)
-            {
-                var ssss1 = ((MemberExpression)sss1.Body).Member as PropertyInfo;
-            }
-            else if (sss1.Body is ConstantExpression)
-            {
-                var sssss = ((ConstantExpression)sss1.Body).Value as PropertyInfo;
-            }
-
-            var list = new List<MemberBinding>();
-
             foreach (var prop in typeof(TSource).GetProperties())
             {
+                var configBind = GetExpression<TSource, TDest>(prop.Name);
+                if (configBind == null)
+                {
+ 
+                    yield return BindByDefault<TDest>(sourceParam, prop);
+                }
+                else
+                {
+                    var typeBody = (configBind as LambdaExpression)?.Body;
+                    if (typeBody is MemberExpression)
+                    {
+                        var propertyInfo = ((MemberExpression)typeBody).Member as PropertyInfo;
+                        if (propertyInfo != null)
+                        {
+                            yield return Expression
+                                .Bind(propertyInfo, Expression.Property(sourceParam, prop));
+                        }
+                    }
+                    else if (typeBody is ConstantExpression)
+                    {
+                        var constant = ((ConstantExpression) typeBody).Value;
+                        var memberInfo = typeof(TDest).GetMember(prop.Name).FirstOrDefault();
+                        if (memberInfo == null)
+                        {
+                            throw new Exception($"Cannot bind the property. Property: {prop.Name}");
+                        }
 
-                yield return Expression
-                    .Bind(typeof(TDest)
-                        .GetProperty(prop.Name), Expression.Property(sourceParam, prop));
+                        yield return Expression
+                            .Bind(memberInfo, Expression.Constant(constant));
+                    }
+                }
             }
         }
 
-        //public void ConvertExpression<TSource, TDest>(string propName)
-        //{
-        //    var memberConfigs = _mapperData.GetConfigMembers<TSource, TDest>();
-        //    var exp = (Expression<Func<TSource, string>>)expression;
-        //    var propertyInfo = ((MemberExpression)exp.Body).Member as PropertyInfo;
+        private MemberAssignment BindByDefault<TDest>(ParameterExpression sourceParam, PropertyInfo propertyInfo)
+        {
+            var propInfo = typeof(TDest).GetProperty(propertyInfo.Name);
 
-        //    return propertyInfo?.Name;
-        //}
+            if (propInfo == null)
+            {
+                throw new Exception($"Cannot bind the property. Property: {propertyInfo.Name}");
+            }
+            
+            var memberAssignment = Expression
+                    .Bind(propInfo, Expression.Property(sourceParam, propertyInfo));
+            
+
+            return memberAssignment;
+        }
+
+        private Expression GetExpression<TSource, TDest>(string propName)
+        {
+            var memberConfigs = _mapperData.GetConfigMembers<TSource, TDest>();
+            Expression expression; 
+            memberConfigs.TryGetValue(propName, out expression);
+            return expression;
+        }
     }
 
-    class Student
-    {
-        public int age;
-    }
 }
-
+//https://entityframework-plus.net/ru/knowledge-base/47468652/
+//https://docs.microsoft.com/en-us/dotnet/api/system.linq.expressions.memberinitexpression?view=netcore-3.1
