@@ -33,6 +33,40 @@ namespace Expressions.Task3.E3SQueryProvider
 
                 return node;
             }
+
+            if (node.Method.Name == "StartsWith")
+            {
+                var constantNode = $"{((ConstantExpression)node.Arguments[0]).Value}*";
+
+                var newNode = Expression.Constant(constantNode);
+                Visit(node.Object);
+                Visit(newNode);
+
+                return node;
+            }
+
+            if (node.Method.Name == "Contains")
+            {
+                var constantNode = $"*{((ConstantExpression)node.Arguments[0]).Value}*";
+
+                var newNode = Expression.Constant(constantNode);
+                Visit(node.Object);
+                Visit(newNode);
+
+                return node;
+            }
+
+            if (node.Method.Name == "EndsWith")
+            {
+                var constantNode = $"*{((ConstantExpression)node.Arguments[0]).Value}";
+
+                var newNode = Expression.Constant(constantNode);
+                Visit(node.Object);
+                Visit(newNode);
+
+                return node;
+            }
+
             return base.VisitMethodCall(node);
         }
 
@@ -41,16 +75,17 @@ namespace Expressions.Task3.E3SQueryProvider
             switch (node.NodeType)
             {
                 case ExpressionType.Equal:
-                    if (!(node.Left.NodeType == ExpressionType.MemberAccess))
-                        throw new NotSupportedException(string.Format("Left operand should be property or field", node.NodeType));
+                    var firstNode = node.Left.NodeType == ExpressionType.Constant ? node.Right : node.Left;
+                    var secondNode = node.Right.NodeType == ExpressionType.Constant ? node.Right : node.Left;
 
-                    if (!(node.Right.NodeType == ExpressionType.Constant))
-                        throw new NotSupportedException(string.Format("Right operand should be constant", node.NodeType));
+                    Visit(firstNode);
+                    Visit(secondNode);
+                    break;
 
+                case ExpressionType.AndAlso:
                     Visit(node.Left);
-                    _resultStringBuilder.Append("(");
+                    _resultStringBuilder.Append(",");
                     Visit(node.Right);
-                    _resultStringBuilder.Append(")");
                     break;
 
                 default:
@@ -62,6 +97,7 @@ namespace Expressions.Task3.E3SQueryProvider
 
         protected override Expression VisitMember(MemberExpression node)
         {
+            
             _resultStringBuilder.Append(node.Member.Name).Append(":");
 
             return base.VisitMember(node);
@@ -69,7 +105,9 @@ namespace Expressions.Task3.E3SQueryProvider
 
         protected override Expression VisitConstant(ConstantExpression node)
         {
+            _resultStringBuilder.Append("(");
             _resultStringBuilder.Append(node.Value);
+            _resultStringBuilder.Append(")");
 
             return node;
         }

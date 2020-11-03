@@ -12,6 +12,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Web;
+using Microsoft.Extensions.Configuration;
 
 namespace Expressions.Task3.E3SQueryProvider.Test
 {
@@ -26,19 +28,37 @@ namespace Expressions.Task3.E3SQueryProvider.Test
             var translator = new ExpressionToFTSRequestTranslator();
             Expression<Func<IQueryable<EmployeeEntity>, IQueryable<EmployeeEntity>>> expression
                 = query => query.Where(e => e.Workstation == "EPRUIZHW006" && e.Manager.StartsWith("John"));
-            /*
-             * The expression above should be converted to the following FTSQueryRequest and then serialized inside FTSRequestGenerator:
-             * "statements": [
-                { "query":"Workstation:(EPRUIZHW006)"},
-                { "query":"Manager:(John*)"}
-                // Operator between queries is AND, in other words result set will fit to both statements above
-              ],
-             */
 
-            // todo: create asserts for this test by yourself, because they will depend on your final implementation
-            throw new NotImplementedException("Please implement this test and the appropriate functionality");
+            //*The expression above should be converted to the following FTSQueryRequest and then serialized inside FTSRequestGenerator:
+            // *"statements": [
+            //    { "query":"Workstation:(EPRUIZHW006)"},
+            //    { "query":"Manager:(John*)"}
+            //    // Operator between queries is AND, in other words result set will fit to both statements above
+            //  ],
+            
+            IConfigurationRoot config = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .Build();
+
+        FTSRequestGenerator ftsRequestGenerator = new FTSRequestGenerator( config["api:apiBaseUrl"]);
+
+        string translatedString = translator.Translate(expression);
+
+        var uri = ftsRequestGenerator.GenerateRequestUrl<EmployeeEntity>(translatedString);
+
+        string param = HttpUtility.ParseQueryString(uri.Query).Get("query").TrimEnd('}').TrimStart('{');
+
+            var expected = "\"statements\"" +
+                           ":[{\"query\":\"Workstation:(EPRUIZHW006)\"}," +
+                           "{\"query\":\"Manager:(John*)\"}]," +
+                           "\"filters\":null,\"sorting\":null,\"start\":0,\"limit\":10";
+
+            
+            Assert.AreEqual(expected, param);
         }
 
         #endregion
     }
 }
+
+//https://stackoverflow.com/questions/659887/get-url-parameters-from-a-string-in-net
